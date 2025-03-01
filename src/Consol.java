@@ -20,11 +20,15 @@ public class Consol {
 
 
     //testovaci metoda
+    //bude potom zahrnuta v command navrhovem vzoru
     public void goToCommand() {
         System.out.println(getLocations());
         int i = this.sc.nextInt();
-        System.out.println(i);
-        System.out.println(wm.getLocations()[i]);
-        System.out.println(wm.goTo(wm.getLocations()[i]));
+        int[] locs = wm.getLocations();
+        if (i < locs.length) {
+            wm.goTo(locs[i]);
+        } else {
+            System.out.println("nedostupna lokace");
+        }
     }
 }
