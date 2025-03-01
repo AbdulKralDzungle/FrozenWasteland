@@ -22,7 +22,9 @@ public class Consol {
     //testovaci metoda
     //bude potom zahrnuta v command navrhovem vzoru
     public void goToCommand() {
+        System.out.println("current location ->" + wm.getCurrentLoc());
         System.out.println(getLocations());
+        System.out.print(">");
         int i = this.sc.nextInt();
         int[] locs = wm.getLocations();
         if (i < locs.length) {

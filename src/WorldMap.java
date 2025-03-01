@@ -12,6 +12,10 @@ public class WorldMap {
         initialize();
     }
 
+    public String getCurrentLoc() {
+        return currentLoc.getName();
+    }
+
     public void initialize() {
         loadLocations();
         currentLoc = world.get(1);
