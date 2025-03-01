@@ -17,13 +17,13 @@ public class WorldMap {
     }
 
     public Boolean loadLocations() {
-        try (BufferedReader br = new BufferedReader(new FileReader("src/DataFiles/MapFile"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/DataFiles/MapFiles/MapFile"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] lines = line.split(";");
                 Location location = new Location(
-                        lines[2],
-                        unpackGoToLocations(lines[3]),
+                        lines[1],
+                        unpackGoToLocations(lines[2]),
                         "will be loaded from different file"
                 );
                 world.put(Integer.valueOf(lines[0]), location);
@@ -35,7 +35,7 @@ public class WorldMap {
     }
 
     private int[] unpackGoToLocations(String goToLocations) {
-        String[] locations = goToLocations.split(";");
+        String[] locations = goToLocations.split("#");
         int[] unpackedLocations = new int[locations.length];
         for (int i = 0; i < locations.length; i++) {
             unpackedLocations[i] = Integer.parseInt(locations[i]);
