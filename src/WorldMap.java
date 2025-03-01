@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class WorldMap {
@@ -45,13 +46,14 @@ public class WorldMap {
 
     public boolean goTo(int location) {
         if (world.containsKey(location)) {
-            Location loc = world.get(location);
-            if (containsLocation(loc, location)) {
-                currentLoc = world.get(1);
+            if (containsLocation(currentLoc, location)) {
+                currentLoc = world.get(location);
+                return true;
             }
         }
         return false;
     }
+
 
     private boolean containsLocation(Location loc, int index) {
         for (int i : loc.getGoToLocations()) {
@@ -60,5 +62,18 @@ public class WorldMap {
             }
         }
         return false;
+    }
+
+    public int[] getLocations() {
+        return this.currentLoc.getGoToLocations();
+    }
+
+    public String[] getLocNames() {
+        int[] locs = getLocations();
+        String[] s = new String[locs.length];
+        for (int i = 0; i < locs.length; i++) {
+            s[i] = world.get(locs[i]).getName();
+        }
+        return s;
     }
 }

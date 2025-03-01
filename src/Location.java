@@ -3,6 +3,10 @@ public class Location {
     private int[] goToLocations;
     private String description;
 
+    public String getName() {
+        return name;
+    }
+
     public int[] getGoToLocations() {
         return goToLocations;
     }
