@@ -1,12 +1,18 @@
+import Command.Command;
+import Command.GoTo;
+import Command.Exit;
+import Map.WorldMap;
+
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Consol {
     WorldMap wm;
     Scanner sc;
+    HashMap<String, Command> commands;
 
     public Consol() {
-        this.wm = new WorldMap();
-        this.sc = new Scanner(System.in);
+        initialize();
     }
 
     private String getLocations() {
@@ -18,9 +24,19 @@ public class Consol {
         return s;
     }
 
+    private void initialize() {
+        this.wm = new WorldMap();
+        this.sc = new Scanner(System.in);
+        commands = new HashMap<>();
+        commands.put("go", new GoTo());
+        commands.put("exit", new Exit());
+        loop();
+    }
 
     //testovaci metoda
     //bude potom zahrnuta v command navrhovem vzoru
+/*
+
     public void goToCommand() {
         System.out.println("current location ->" + wm.getCurrentLoc());
         System.out.println(getLocations());
@@ -32,5 +48,21 @@ public class Consol {
         } else {
             System.out.println("nedostupna lokace");
         }
+    }
+
+ */
+
+
+    private void loop() {
+        boolean exit = false;
+        do {
+            String command = sc.next();
+            if (commands.containsKey(command)) {
+                String text = commands.get(command).execute(wm);
+                System.out.println(text);
+                exit = commands.get(command).exit();
+            }
+        } while (!exit);
+        sc.close();
     }
 }
