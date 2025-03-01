@@ -5,6 +5,16 @@ import java.util.HashMap;
 
 public class WorldMap {
     private HashMap<Integer, Location> world = new HashMap<>();
+    private Location currentLoc;
+
+    public WorldMap() {
+        initialize();
+    }
+
+    public void initialize() {
+        loadLocations();
+        currentLoc = world.get(1);
+    }
 
     public Boolean loadLocations() {
         try (BufferedReader br = new BufferedReader(new FileReader("src/DataFiles/MapFile"))) {
@@ -14,7 +24,7 @@ public class WorldMap {
                 Location location = new Location(
                         lines[2],
                         unpackGoToLocations(lines[3]),
-                        "sss"
+                        "will be loaded from different file"
                 );
                 world.put(Integer.valueOf(lines[0]), location);
             }
@@ -31,5 +41,24 @@ public class WorldMap {
             unpackedLocations[i] = Integer.parseInt(locations[i]);
         }
         return unpackedLocations;
+    }
+
+    public boolean goTo(int location) {
+        if (world.containsKey(location)) {
+            Location loc = world.get(location);
+            if (containsLocation(loc, location)) {
+                currentLoc = world.get(1);
+            }
+        }
+        return false;
+    }
+
+    private boolean containsLocation(Location loc, int index) {
+        for (int i : loc.getGoToLocations()) {
+            if (index == i) {
+                return true;
+            }
+        }
+        return false;
     }
 }
