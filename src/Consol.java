@@ -43,11 +43,14 @@ public class Consol {
             System.out.println(soutInfo());
             String command = sc.nextLine();
             String[] split = command.split(" ");
-            System.out.println(command);
-            if (commands.containsKey(split[0])) {
-                String text = commands.get(split[0]).execute(wm, split[1]);
-                System.out.println(text);
-                exit = commands.get(split[0]).exit();
+            if(split.length == 2){
+                if (commands.containsKey(split[0])) {
+                    String text = commands.get(split[0]).execute(wm, split[1]);
+                    System.out.println(text);
+                    exit = commands.get(split[0]).exit();
+                }
+            }else{
+                System.out.println("invalid command");
             }
         } while (!exit);
         sc.close();
