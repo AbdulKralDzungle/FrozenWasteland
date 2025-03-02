@@ -10,16 +10,14 @@ public class GoTo extends Command {
     @Override
     public String execute(WorldMap wm) {
         sc = new Scanner(System.in);
-        String s = "";
-        s = s + "current location ->" + wm.getCurrentLoc() + "\n";
-        s = s + getLocations(wm) + "\n";
-        s = s + (">");
+        String s;
         int i = this.sc.nextInt();
         int[] locs = wm.getLocations();
         if (i < locs.length) {
             wm.goTo(locs[i]);
+            s = "yau now are at:" + wm.getCurrentLoc();
         } else {
-            s = ("nedostupna lokace");
+            s = ("as hard as you try, that place simply ins't a place for you to go");
         }
         return s;
     }

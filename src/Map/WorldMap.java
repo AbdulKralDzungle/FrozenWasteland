@@ -17,6 +17,10 @@ public class WorldMap {
         return currentLoc.getName();
     }
 
+    public int getCurrentId() {
+        return currentLoc.getId();
+    }
+
     public void initialize() {
         loadLocations();
         currentLoc = world.get(1);
@@ -28,6 +32,7 @@ public class WorldMap {
             while ((line = br.readLine()) != null) {
                 String[] lines = line.split(";");
                 Location location = new Location(
+                        Integer.parseInt(lines[0]),
                         lines[1],
                         unpackGoToLocations(lines[2]),
                         "will be loaded from different file"
