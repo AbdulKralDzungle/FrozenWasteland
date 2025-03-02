@@ -5,13 +5,10 @@ import Map.WorldMap;
 import java.util.Scanner;
 
 public class GoTo extends Command {
-    Scanner sc;
-
     @Override
-    public String execute(WorldMap wm) {
-        sc = new Scanner(System.in);
+    public String execute(WorldMap wm, String subject) {
         String s;
-        int i = this.sc.nextInt();
+        int i = Integer.parseInt(subject);
         int[] locs = wm.getLocations();
         if (i < locs.length) {
             wm.goTo(locs[i]);

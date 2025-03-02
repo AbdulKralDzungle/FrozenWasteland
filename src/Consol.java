@@ -61,11 +61,13 @@ public class Consol {
         boolean exit = false;
         do {
             System.out.println(soutInfo());
-            String command = sc.next();
-            if (commands.containsKey(command)) {
-                String text = commands.get(command).execute(wm);
+            String command = sc.nextLine();
+            String[] split = command.split(" ");
+            System.out.println(command);
+            if (commands.containsKey(split[0])) {
+                String text = commands.get(split[0]).execute(wm, split[1]);
                 System.out.println(text);
-                exit = commands.get(command).exit();
+                exit = commands.get(split[0]).exit();
             }
         } while (!exit);
         sc.close();

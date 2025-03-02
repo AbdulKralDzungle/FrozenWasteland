@@ -4,7 +4,7 @@ import Map.WorldMap;
 
 public class Exit extends Command{
     @Override
-    public String execute(WorldMap wm) {
+    public String execute(WorldMap wm, String subject) {
         return "program byl ukoncen";
     }
 
