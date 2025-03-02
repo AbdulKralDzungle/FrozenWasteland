@@ -12,7 +12,7 @@ public class GoTo extends Command {
         int[] locs = wm.getLocations();
         if (i < locs.length) {
             wm.goTo(locs[i]);
-            s = "yau now are at:" + wm.getCurrentLoc();
+            s = "you moved to:" + wm.getCurrentLoc();
         } else {
             s = ("as hard as you try, that place simply ins't a place for you to go");
         }

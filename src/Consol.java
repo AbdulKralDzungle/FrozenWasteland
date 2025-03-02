@@ -52,6 +52,7 @@ public class Consol {
             }else{
                 System.out.println("invalid command");
             }
+            System.out.println("--------------------------------------------------//-----------------------------------------------------");
         } while (!exit);
         sc.close();
     }
