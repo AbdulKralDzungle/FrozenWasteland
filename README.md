@@ -1,1 +1,1 @@
-Moc pěkný projekt. Příběhová textová postapokaliptická hra. Blemc.
+Moc pěkný projekt. Příběhová textová postapokaliptická hra.
