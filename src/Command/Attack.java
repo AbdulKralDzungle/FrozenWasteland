@@ -3,15 +3,15 @@ package Command;
 import Items.Item;
 import Map.WorldMap;
 
-public class Exit extends Command{
+public class Attack extends Command{
     @Override
     public String execute(WorldMap wm, String subject) {
-        return "program byl ukoncen";
+        return "bum";
     }
 
     @Override
     public boolean exit() {
-        return true;
+        return false;
     }
 
     @Override

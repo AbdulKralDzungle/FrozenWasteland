@@ -1,5 +1,6 @@
 package Command;
 
+import Items.Item;
 import Map.WorldMap;
 
 import java.util.Scanner;
@@ -31,5 +32,15 @@ public class GoTo extends Command {
     @Override
     public boolean exit() {
         return false;
+    }
+
+    @Override
+    public boolean endsTurn() {
+        return false;
+    }
+
+    @Override
+    public Item gainItem() {
+        return null;
     }
 }
