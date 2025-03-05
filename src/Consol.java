@@ -10,9 +10,9 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Consol {
-    WorldMap wm;
-    Scanner sc;
-    HashMap<String, Command> commands;
+    private WorldMap wm;
+    private Scanner sc;
+    private HashMap<String, Command> commands;
 
     public Consol() {
         initialize();

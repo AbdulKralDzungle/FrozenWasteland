@@ -36,4 +36,8 @@ public class Location {
     public Item search() {
         return null;
     }
+
+    public String soutNpcs() {
+        return "   ";
+    }
 }

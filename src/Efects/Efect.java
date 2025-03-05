@@ -1,6 +1,6 @@
 package Efects;
 
 public abstract class Efect {
-    public abstract Boolean apply();
-    public abstract Boolean remove();
+    public abstract boolean apply();
+    public abstract boolean remove();
 }
