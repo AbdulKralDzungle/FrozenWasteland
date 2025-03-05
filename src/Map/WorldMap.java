@@ -34,8 +34,7 @@ public class WorldMap {
                 Location location = new Location(
                         Integer.parseInt(lines[0]),
                         lines[1],
-                        unpackGoToLocations(lines[2]),
-                        "will be loaded from different file"
+                        unpackGoToLocations(lines[2])
                 );
                 world.put(Integer.valueOf(lines[0]), location);
             }

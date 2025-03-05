@@ -1,6 +1,5 @@
-import Command.Command;
-import Command.GoTo;
-import Command.Exit;
+import Command.*;
+
 import Map.Location;
 import Map.WorldMap;
 
@@ -43,13 +42,13 @@ public class Consol {
             System.out.println(soutInfo());
             String command = sc.nextLine();
             String[] split = command.split(" ");
-            if(split.length == 2){
+            if (split.length == 2) {
                 if (commands.containsKey(split[0])) {
                     String text = commands.get(split[0]).execute(wm, split[1]);
                     System.out.println(text);
                     exit = commands.get(split[0]).exit();
                 }
-            }else{
+            } else {
                 System.out.println("invalid command");
             }
             System.out.println("--------------------------------------------------//-----------------------------------------------------");
@@ -60,7 +59,7 @@ public class Consol {
     private String soutInfo() {
         String s = "";
         try (BufferedReader br = new BufferedReader(new FileReader("src/DataFiles/MapFiles/MapText"))) {
-            for (int i = 0; i < wm.getCurrentId() -1 ; i++) {
+            for (int i = 0; i < wm.getCurrentId() - 1; i++) {
                 br.readLine();
             }
             s = s + "\n" + br.readLine();
