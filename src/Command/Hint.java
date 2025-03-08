@@ -6,7 +6,7 @@ import Map.WorldMap;
 public class Hint extends Command{
     @Override
     public String execute(WorldMap wm, String subject) {
-        return "";
+        return "hintnuto";
     }
 
     @Override

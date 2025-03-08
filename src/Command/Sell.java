@@ -6,7 +6,7 @@ import Map.WorldMap;
 public class Sell extends Command{
     @Override
     public String execute(WorldMap wm, String subject) {
-        return "";
+        return "prodano";
     }
 
     @Override

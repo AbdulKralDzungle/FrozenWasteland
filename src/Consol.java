@@ -33,6 +33,14 @@ public class Consol {
         commands = new HashMap<>();
         commands.put("go", new GoTo());
         commands.put("exit", new Exit());
+        commands.put("buy", new Buy());
+        commands.put("attack", new Attack());
+        commands.put("help", new Help());
+        commands.put("hint", new Hint());
+        commands.put("interact", new Interact());
+        commands.put("search", new Search());
+        commands.put("sell", new Sell());
+        commands.put("use", new Use());
         loop();
     }
 
@@ -47,6 +55,8 @@ public class Consol {
                     String text = commands.get(split[0]).execute(wm, split[1]);
                     System.out.println(text);
                     exit = commands.get(split[0]).exit();
+                } else {
+                    System.out.println("invalid command");
                 }
             } else {
                 System.out.println("invalid command");

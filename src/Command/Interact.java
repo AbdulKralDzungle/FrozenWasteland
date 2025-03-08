@@ -6,7 +6,7 @@ import Map.WorldMap;
 public class Interact extends Command{
     @Override
     public String execute(WorldMap wm, String subject) {
-        return "";
+        return "interagovano";
     }
 
     @Override

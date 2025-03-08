@@ -6,7 +6,7 @@ import Map.WorldMap;
 public class Help extends Command{
     @Override
     public String execute(WorldMap wm, String subject) {
-        return "asdf";
+        return "pomozeno";
     }
 
     @Override
