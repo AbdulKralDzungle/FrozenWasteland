@@ -31,6 +31,17 @@ public class Player {
         return false;
     }
 
+    public void applyEffect(Efect e) {
+        effects.add(e);
+    }
+
+    public void inicialize() {
+        hp = 100;
+        energy = 100;
+        bag = new Bag();
+        effects = new ArrayList<>();
+    }
+
     public void ubdate() {
 
     }

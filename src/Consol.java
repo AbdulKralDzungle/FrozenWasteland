@@ -32,6 +32,7 @@ public class Consol {
     private void initialize() {
         this.wm = new WorldMap();
         this.player = new Player();
+        this.player.inicialize();
         this.sc = new Scanner(System.in);
         commands = new HashMap<>();
         commands.put("go", new GoTo());
@@ -53,35 +54,39 @@ public class Consol {
             System.out.println(soutInfo());
             String command = sc.nextLine();
             String[] split = command.split(" ");
-            execute(split);
+            System.out.println(execute(split));
             System.out.println("--------------------------------------------------//------------------------------------------------------");
             exit = commands.get(split[0]).exit();
         } while (!exit);
         sc.close();
     }
 
-    private void execute(String[] command) {
+    private String execute(String[] command) {
         if (command.length == 2) {
             if (commands.containsKey(command[0])) {
                 Command cmd = commands.get(command[0]);
-                String text = cmd.execute(wm, command[1]);
-                player.putItem(cmd.gainItem());
-                if (cmd.removesItem()) {
-                    player.removeItem(Integer.parseInt(command[1]));
+                if (player.removeEnergy(cmd.energyCost())) {
+                    String text = cmd.execute(wm, command[1]);
+                    player.putItem(cmd.gainItem());
+                    player.applyEffect(cmd.apply());
+                    if (cmd.removesItem()) {
+                        player.removeItem(Integer.parseInt(command[1]));
+                    }
+                    System.out.println(text);
+                    if (cmd.endsTurn()) {
+                        endTurn();
+                        return soutEndTurnInfo();
+                    } else {
+                        return soutSoftInfo();
+                    }
                 }
-                if (cmd.endsTurn()) {
-                    System.out.println(soutEndTurnInfo());
-                    endTurn();
-                } else {
-                    System.out.println(soutSoftInfo());
-                }
-                System.out.println(text);
+                return "nedostatek energie";
             } else {
-                System.out.println("invalid command");
+                return "invalid command";
             }
-        } else {
-            System.out.println("invalid command");
         }
+        return "invalid command";
+
     }
 
     private String soutEndTurnInfo() {
