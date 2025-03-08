@@ -12,7 +12,7 @@ public class Location {
     private int id;
     private ArrayList<Item> findables;
     private ArrayList<Npc> npcs;
-    private ArrayList<Efect> applaybles;
+    private Efect applayble;
 
 
     public String getName() {
@@ -32,7 +32,9 @@ public class Location {
         this.id = id;
         this.goToLocations = goToLocations;
     }
-
+    public Efect apply() {
+        return applayble;
+    }
     public Item search() {
         return null;
     }

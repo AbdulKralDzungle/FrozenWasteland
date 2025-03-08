@@ -13,12 +13,16 @@ public class WorldMap {
         initialize();
     }
 
-    public String getCurrentLoc() {
+    public String getCurrentName() {
         return currentLoc.getName();
     }
 
     public int getCurrentId() {
         return currentLoc.getId();
+    }
+
+    public Location getCurrentLoc() {
+        return currentLoc;
     }
 
     public void initialize() {

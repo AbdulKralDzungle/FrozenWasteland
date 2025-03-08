@@ -14,7 +14,7 @@ public class GoTo extends Command {
         int[] locs = wm.getLocations();
         if (i < locs.length) {
             wm.goTo(locs[i]);
-            s = "you moved to:" + wm.getCurrentLoc();
+            s = "you moved to:" + wm.getCurrentName();
         } else {
             s = ("as hard as you try, that place simply ins't a place for you to go");
         }

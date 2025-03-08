@@ -17,9 +17,9 @@ public abstract class Command {
 
     public abstract int giveMoney();
 
-    public abstract int energyCost();
+    public abstract int energyCost(); //
 
     public abstract boolean removesItem();
 
-    public abstract Item gainItem();
+    public abstract Item gainItem(); //
 }
