@@ -1,5 +1,6 @@
 package Command;
 
+import Efects.Efect;
 import Items.Item;
 import Map.WorldMap;
 
@@ -35,7 +36,32 @@ public class GoTo extends Command {
     }
 
     @Override
+    public Efect apply() {
+        return null;
+    }
+
+    @Override
     public boolean endsTurn() {
+        return false;
+    }
+
+    @Override
+    public int gainMoney() {
+        return 0;
+    }
+
+    @Override
+    public int giveMoney() {
+        return 0;
+    }
+
+    @Override
+    public int energyCost() {
+        return 0;
+    }
+
+    @Override
+    public boolean removesItem() {
         return false;
     }
 

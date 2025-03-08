@@ -2,6 +2,7 @@ import Command.*;
 
 import Map.Location;
 import Map.WorldMap;
+import Player.Player;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -13,6 +14,7 @@ public class Consol {
     private WorldMap wm;
     private Scanner sc;
     private HashMap<String, Command> commands;
+    private Player player;
 
     public Consol() {
         initialize();
@@ -29,6 +31,7 @@ public class Consol {
 
     private void initialize() {
         this.wm = new WorldMap();
+        this.player = new Player();
         this.sc = new Scanner(System.in);
         commands = new HashMap<>();
         commands.put("go", new GoTo());
@@ -50,22 +53,46 @@ public class Consol {
             System.out.println(soutInfo());
             String command = sc.nextLine();
             String[] split = command.split(" ");
-            if (split.length == 2) {
-                if (commands.containsKey(split[0])) {
-                    String text = commands.get(split[0]).execute(wm, split[1]);
-                    System.out.println(text);
-                    exit = commands.get(split[0]).exit();
-                } else {
-                    System.out.println("invalid command");
-                }
-            } else {
-                System.out.println("invalid command");
-            }
+            execute(split);
             System.out.println("--------------------------------------------------//------------------------------------------------------");
+            exit = commands.get(split[0]).exit();
         } while (!exit);
         sc.close();
     }
 
+    private void execute(String[] command) {
+        if (command.length == 2) {
+            if (commands.containsKey(command[0])) {
+                Command cmd = commands.get(command[0]);
+                String text = cmd.execute(wm, command[1]);
+                player.putItem(cmd.gainItem());
+                if (cmd.removesItem()) {
+                    player.removeItem(Integer.parseInt(command[1]));
+                }
+                if (cmd.endsTurn()) {
+                    System.out.println(soutEndTurnInfo());
+                    endTurn();
+                } else {
+                    System.out.println(soutSoftInfo());
+                }
+                System.out.println(text);
+            } else {
+                System.out.println("invalid command");
+            }
+        } else {
+            System.out.println("invalid command");
+        }
+    }
+
+    private String soutEndTurnInfo() {
+        return "turn ended";
+    }
+
+    private String soutSoftInfo() {
+        return "you did smth";
+    }
+
+    // temporary way to display game status
     private String soutInfo() {
         String s = "";
         try (BufferedReader br = new BufferedReader(new FileReader("src/DataFiles/MapFiles/MapText"))) {
@@ -75,10 +102,16 @@ public class Consol {
             s = s + "\n" + br.readLine();
             s = s + "\ncurrent location ->" + wm.getCurrentLoc() + "\n";
             s = s + getLocations() + "\n";
+            s = s + player.getItemList();
             s = s + ">";
             return s;
         } catch (IOException E) {
             return "error 404, text not found";
         }
+
+    }
+
+    private void endTurn() {
+
     }
 }
