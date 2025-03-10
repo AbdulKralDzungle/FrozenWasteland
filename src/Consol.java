@@ -2,6 +2,8 @@ import Command.*;
 
 import Map.Location;
 import Map.WorldMap;
+import Npcs.Eneme;
+import Npcs.FriendlyNPC;
 import Npcs.Npc;
 import Player.Player;
 
@@ -65,21 +67,38 @@ public class Consol {
             System.out.println(soutInfo());
             String command = sc.nextLine();
             String[] split = command.split(" ");
-            System.out.println(executeTurn(split));
-            System.out.println("--------------------------------------------------//-------------------------------------------------");
-            exit = commands.get(split[0]).exit();
+            if (interactibleEntiti != null) {
+                System.out.println(executeInteraction(split));
+                System.out.println("--------------------------------------------------//-------------------------------------------------");
+                exit = interactions.get(split[0]).exit();
+            } else {
+                System.out.println(executeTurn(split));
+                System.out.println("--------------------------------------------------//-------------------------------------------------");
+                exit = commands.get(split[0]).exit();
+            }
         } while (!exit);
         sc.close();
     }
 
     private String executeInteraction(String[] command) {
         if (command.length == 2) {
-            if (commands.containsKey(command[0])) {
-                Command cmd = commands.get(command[0]);
+            if (interactions.containsKey(command[0])) {
+                Command cmd = interactions.get(command[0]);
                 if (player.removeEnergy(cmd.energyCost())) {
+                    //---------------------------------------//
+                    // jeste rozdelim do metod and staff
                     String text = cmd.execute(wm, command[1]);
-                    player.putItem(cmd.gainItem());
-                    player.applyEffect(cmd.apply());
+
+                    //---------------------------------------//
+                    if (interactibleEntiti instanceof FriendlyNPC) {
+                        player.putItem(cmd.gainItem());
+                        player.applyEffect(cmd.apply());
+                        player.gainMoney(cmd.gainMoney());
+                    } else {
+                        player.applyEffect(cmd.apply());
+                        ((Eneme) interactibleEntiti).takeDmg(cmd.dealDamage());
+                    }
+                    //---------------------------------------//
                     if (cmd.removesItem()) {
                         player.removeItem(Integer.parseInt(command[1]));
                     }
@@ -108,6 +127,7 @@ public class Consol {
                     player.applyEffect(wm.getCurrentLoc().apply());
                     player.putItem(cmd.gainItem());
                     System.out.println(text);
+                    interactibleEntiti = cmd.startInteraction();
                     if (cmd.endsTurn()) {
                         endTurn();
                         return soutEndTurnInfo();

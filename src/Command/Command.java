@@ -3,23 +3,28 @@ package Command;
 import Efects.Efect;
 import Items.*;
 import Map.*;
+import Npcs.Npc;
 
 public abstract class Command {
-    public abstract String execute(WorldMap wm, String subject);
+    public abstract String execute(WorldMap wm, String subject); //
 
-    public abstract boolean exit();
+    public abstract boolean exit();//
 
-    public abstract Efect apply();
+    public abstract Efect apply();//
 
-    public abstract boolean endsTurn();
+    public abstract boolean endsTurn();//
 
-    public abstract int gainMoney();
+    public abstract int gainMoney();//
 
-    public abstract int giveMoney();
+    public abstract Npc startInteraction();
+
+    public abstract int giveMoney();//
 
     public abstract int energyCost(); //
 
-    public abstract boolean removesItem();
+    public abstract boolean removesItem();//
 
-    public abstract Item gainItem(); //
+    public abstract Item gainItem();//
+
+    public abstract int dealDamage();
 }

@@ -3,6 +3,7 @@ package Command;
 import Efects.Efect;
 import Items.Item;
 import Map.WorldMap;
+import Npcs.Npc;
 
 public class Sell extends Command{
     @Override
@@ -31,6 +32,11 @@ public class Sell extends Command{
     }
 
     @Override
+    public Npc startInteraction() {
+        return null;
+    }
+
+    @Override
     public int giveMoney() {
         return 0;
     }
@@ -48,5 +54,10 @@ public class Sell extends Command{
     @Override
     public Item gainItem() {
         return null;
+    }
+
+    @Override
+    public int dealDamage() {
+        return 0;
     }
 }
