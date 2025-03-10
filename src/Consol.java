@@ -21,6 +21,7 @@ public class Consol {
     private HashMap<String, Command> commands;
     private HashMap<String, Command> interactions;
     private Player player;
+    private boolean exit;
 
     public Consol() {
         initialize();
@@ -36,6 +37,7 @@ public class Consol {
     }
 
     private void initialize() {
+        exit = false;
         this.wm = new WorldMap();
         this.player = new Player();
         this.player.inicialize();
@@ -62,7 +64,6 @@ public class Consol {
     }
 
     private void loop() {
-        boolean exit;
         do {
             System.out.println(soutInfo());
             String command = sc.nextLine();
@@ -74,7 +75,7 @@ public class Consol {
             } else {
                 System.out.println(executeTurn(split));
                 System.out.println("--------------------------------------------------//-------------------------------------------------");
-                exit = commands.get(split[0]).exit();
+
             }
         } while (!exit);
         sc.close();
@@ -83,6 +84,7 @@ public class Consol {
     private String executeInteraction(String[] command) {
         if (command.length == 2) {
             if (interactions.containsKey(command[0])) {
+                exit = commands.get(command[0]).exit();
                 Command cmd = interactions.get(command[0]);
                 if (player.removeEnergy(cmd.energyCost())) {
                     //---------------------------------------//
@@ -109,8 +111,11 @@ public class Consol {
                     } else {
                         return soutSoftInfo();
                     }
+
                 }
+
                 return "nedostatek energie";
+
             } else {
                 return "invalid command";
             }
@@ -121,6 +126,7 @@ public class Consol {
     private String executeTurn(String[] command) {
         if (command.length == 2) {
             if (commands.containsKey(command[0])) {
+                exit = commands.get(command[0]).exit();
                 Command cmd = commands.get(command[0]);
                 if (player.removeEnergy(cmd.energyCost())) {
                     String text = cmd.execute(wm, command[1]);
@@ -140,7 +146,7 @@ public class Consol {
                 return "invalid command";
             }
         }
-        return "invalid command";
+        return "invalid or currently unusable command";
     }
 
     private String soutEndTurnInfo() {
@@ -159,7 +165,7 @@ public class Consol {
                 br.readLine();
             }
             s = s + "\n" + br.readLine();
-            s = s + "\ncurrent location ->" + wm.getCurrentLoc() + "\n";
+            s = s + "\ncurrent location ->" + wm.getCurrentName() + "\n";
             s = s + getLocations() + "\n";
             s = s + player.getItemList();
             s = s + ">";
