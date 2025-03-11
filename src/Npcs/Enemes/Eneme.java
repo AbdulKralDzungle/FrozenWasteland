@@ -1,6 +1,7 @@
-package Npcs;
+package Npcs.Enemes;
 
 import Efects.*;
+import Npcs.Npc;
 
 import java.util.ArrayList;
 

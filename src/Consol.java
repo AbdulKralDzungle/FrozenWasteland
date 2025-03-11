@@ -1,9 +1,8 @@
 import Command.*;
 
-import Map.Location;
 import Map.WorldMap;
-import Npcs.Eneme;
-import Npcs.FriendlyNPC;
+import Npcs.Enemes.Eneme;
+import Npcs.Friendly.FriendlyNPC;
 import Npcs.Npc;
 import Player.Player;
 

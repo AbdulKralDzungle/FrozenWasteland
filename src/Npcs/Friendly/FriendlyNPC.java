@@ -1,6 +1,7 @@
-package Npcs;
+package Npcs.Friendly;
 
 import Items.Item;
+import Npcs.Npc;
 
 public abstract class FriendlyNPC extends Npc {
     public abstract String talk();
