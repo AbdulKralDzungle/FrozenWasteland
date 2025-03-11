@@ -82,7 +82,7 @@ public class Consol {
 
     private String executeInteraction(String[] command) {
         if (command.length == 2) {
-            if (interactions.containsKey(command[0])) {
+            if (interactions.containsKey(command[0]) && command[1].matches("^[0-9]*$")) {
                 exit = commands.get(command[0]).exit();
                 Command cmd = interactions.get(command[0]);
                 if (player.removeEnergy(cmd.energyCost())) {
