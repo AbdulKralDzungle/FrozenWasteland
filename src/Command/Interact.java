@@ -8,6 +8,27 @@ import Npcs.Npc;
 public class Interact extends Command{
     @Override
     public String execute(WorldMap wm, String subject) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         return "interagovano";
     }
 
