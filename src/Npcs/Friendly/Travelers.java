@@ -25,6 +25,6 @@ public class Travelers extends FriendlyNPC{
 
     @Override
     public String description() {
-        return "";
+        return "Traveling guy#Description";
     }
 }

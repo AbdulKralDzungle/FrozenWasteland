@@ -26,6 +26,6 @@ public class Mike extends FriendlyNPC {
 
     @Override
     public String description() {
-        return "";
+        return "Mike#Description";
     }
 }

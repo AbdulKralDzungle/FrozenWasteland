@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Crawler extends Eneme{
     @Override
     public String description() {
-        return "";
+        return "Crawler#Description";
     }
 
     @Override

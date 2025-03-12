@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Centipede extends Eneme {
     @Override
     public String description() {
-        return "";
+        return "Centipede#Description";
     }
 
     @Override

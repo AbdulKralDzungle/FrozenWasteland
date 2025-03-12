@@ -25,6 +25,6 @@ public class TavernMaster extends FriendlyNPC{
 
     @Override
     public String description() {
-        return "";
+        return "Tavern master#Description";
     }
 }

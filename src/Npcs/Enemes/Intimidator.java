@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Intimidator extends Eneme {
     @Override
     public String description() {
-        return "";
+        return "Intimidator#Description";
     }
 
     @Override

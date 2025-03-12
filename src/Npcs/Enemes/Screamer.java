@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Screamer extends Eneme {
     @Override
     public String description() {
-        return "";
+        return "Screamer#Description";
     }
 
     @Override

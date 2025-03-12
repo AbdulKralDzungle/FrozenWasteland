@@ -23,7 +23,7 @@ public class Attack extends Command{
 
     @Override
     public boolean endsTurn() {
-        return false;
+        return true;
     }
 
     @Override

@@ -25,6 +25,6 @@ public class BoneMan extends FriendlyNPC{
 
     @Override
     public String description() {
-        return "";
+        return "Bones on floor#Description";
     }
 }
