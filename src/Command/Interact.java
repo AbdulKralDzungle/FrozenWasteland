@@ -4,31 +4,17 @@ import Efects.Efect;
 import Items.Item;
 import Map.WorldMap;
 import Npcs.Npc;
+import Player.Player;
 
-public class Interact extends Command{
+import java.util.ArrayList;
+
+public class Interact extends Command {
+    private Npc npc;
+
     @Override
-    public String execute(WorldMap wm, String subject) {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public String execute(WorldMap wm, String subject, Npc interactible) {
+        ArrayList<Npc> npcs = wm.getCurrentLoc().getNpcs();
+        npc = npcs.get(Integer.parseInt(subject));
         return "interagovano";
     }
 
@@ -54,7 +40,8 @@ public class Interact extends Command{
 
     @Override
     public Npc startInteraction() {
-        return null;
+        System.out.println(npc.description());
+        return npc;
     }
 
     @Override

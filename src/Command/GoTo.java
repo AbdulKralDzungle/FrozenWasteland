@@ -4,12 +4,13 @@ import Efects.Efect;
 import Items.Item;
 import Map.WorldMap;
 import Npcs.Npc;
+import Player.Player;
 
 import java.util.Scanner;
 
 public class GoTo extends Command {
     @Override
-    public String execute(WorldMap wm, String subject) {
+    public String execute(WorldMap wm, String subject, Npc interactible) {
         String s;
         int i = Integer.parseInt(subject);
         int[] locs = wm.getLocations();

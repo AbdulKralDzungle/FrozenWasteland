@@ -4,10 +4,13 @@ import Efects.Efect;
 import Items.Item;
 import Map.WorldMap;
 import Npcs.Npc;
+import Player.Player;
 
 public class Sell extends Command{
+    private Npc interactible;
     @Override
-    public String execute(WorldMap wm, String subject) {
+    public String execute(WorldMap wm, String subject, Npc interactible) {
+        this.interactible = interactible;
         return "prodano";
     }
 

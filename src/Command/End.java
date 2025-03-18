@@ -6,10 +6,10 @@ import Map.WorldMap;
 import Npcs.Npc;
 import Player.Player;
 
-public class Help extends Command{
+public class End extends Command {
     @Override
     public String execute(WorldMap wm, String subject, Npc interactible) {
-        return "pomozeno";
+        return "";
     }
 
     @Override
@@ -24,7 +24,7 @@ public class Help extends Command{
 
     @Override
     public boolean endsTurn() {
-        return false;
+        return true;
     }
 
     @Override

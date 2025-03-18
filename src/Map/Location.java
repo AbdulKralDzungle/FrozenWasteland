@@ -62,6 +62,10 @@ public class Location {
         return s;
     }
 
+    public ArrayList<Npc> getNpcs() {
+        return npcs;
+    }
+
     // reads from file
     // file order is NPCS, effects, items
     private String loadLocationString() {

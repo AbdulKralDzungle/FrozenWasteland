@@ -3,11 +3,16 @@ package Command;
 import Efects.Efect;
 import Items.Item;
 import Map.WorldMap;
+import Npcs.Enemes.Eneme;
 import Npcs.Npc;
+import Player.Player;
 
-public class Attack extends Command{
+public class Attack extends Command {
+    private Npc interactible;
+
     @Override
-    public String execute(WorldMap wm, String subject) {
+    public String execute(WorldMap wm, String subject, Npc interactible) {
+        this.interactible = interactible;
         return "bum";
     }
 
@@ -33,7 +38,7 @@ public class Attack extends Command{
 
     @Override
     public Npc startInteraction() {
-        return null;
+        return interactible;
     }
 
     @Override

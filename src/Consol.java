@@ -53,6 +53,7 @@ public class Consol {
 
         interactions = new HashMap<>();
         interactions.put("exit", new Exit());
+        interactions.put("end", new End());
         interactions.put("buy", new Buy());
         interactions.put("attack", new Attack());
         interactions.put("help", new Help());
@@ -70,11 +71,9 @@ public class Consol {
             if (interactibleEntiti != null) {
                 System.out.println(executeInteraction(split));
                 System.out.println("--------------------------------------------------//-------------------------------------------------");
-                exit = interactions.get(split[0]).exit();
             } else {
                 System.out.println(executeTurn(split));
                 System.out.println("--------------------------------------------------//-------------------------------------------------");
-
             }
         } while (!exit);
         sc.close();
@@ -83,12 +82,13 @@ public class Consol {
     private String executeInteraction(String[] command) {
         if (command.length == 2) {
             if (interactions.containsKey(command[0]) && command[1].matches("^[0-9]*$")) {
-                exit = commands.get(command[0]).exit();
+                exit = interactions.get(command[0]).exit();
                 Command cmd = interactions.get(command[0]);
+                System.out.println("uvnitr interakce");
                 if (player.removeEnergy(cmd.energyCost())) {
                     //---------------------------------------//
                     // jeste rozdelim do metod and staff
-                    String text = cmd.execute(wm, command[1]);
+                    String text = cmd.execute(wm, command[1], interactibleEntiti);
 
                     //---------------------------------------//
                     if (interactibleEntiti instanceof FriendlyNPC) {
@@ -104,6 +104,7 @@ public class Consol {
                         player.removeItem(Integer.parseInt(command[1]));
                     }
                     System.out.println(text);
+                    interactibleEntiti = cmd.startInteraction();
                     if (cmd.endsTurn()) {
                         endTurn();
                         return soutEndTurnInfo();
@@ -125,7 +126,7 @@ public class Consol {
                 exit = commands.get(command[0]).exit();
                 Command cmd = commands.get(command[0]);
                 if (player.removeEnergy(cmd.energyCost())) {
-                    String text = cmd.execute(wm, command[1]);
+                    String text = cmd.execute(wm, command[1], interactibleEntiti);
                     player.applyEffect(wm.getCurrentLoc().apply());
                     player.putItem(cmd.gainItem());
                     System.out.println(text);

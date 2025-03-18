@@ -4,9 +4,10 @@ import Efects.Efect;
 import Items.*;
 import Map.*;
 import Npcs.Npc;
+import Player.Player;
 
 public abstract class Command {
-    public abstract String execute(WorldMap wm, String subject); //
+    public abstract String execute(WorldMap wm, String subject, Npc interactible); //
 
     public abstract boolean exit();//
 
