@@ -51,6 +51,7 @@ public class Location {
         String s = loadLocationString();
         String[] properties = s.split(";");
         npcs = loadNpcs(properties[1]);
+        applayble = loadApplyable(properties[2]);
         findables = loadItems(properties[3]);
     }
 
@@ -112,6 +113,24 @@ public class Location {
         return npcs;
     }
 
+    //tohle se presune do tridy effect loader
+    private Efect loadApplyable(String id) {
+        if (id.matches("^[0-9]*$")) {
+            return (switch (Integer.parseInt(id)) {
+                case 0 -> null;
+                case 1 -> new Bleeding();
+                case 2 -> new Exhoustion();
+                case 3 -> new Freez();
+                case 4 -> new Inhalation();
+                case 5 -> new Strenght();
+                case 6 -> new Weekness();
+                default -> throw new IllegalStateException("Unexpected value: " + Integer.parseInt(id));
+            });
+        }
+        return null;
+    }
+
+    // tohle se presune do tridy item loader
     private ArrayList<Item> loadItems(String ids) {
         String[] idPole = ids.split("#");
         ArrayList<Item> items = new ArrayList<>();
