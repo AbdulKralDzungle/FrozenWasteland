@@ -15,7 +15,6 @@ public class Player {
 
     public boolean putItem(Item item) {
         if (item != null) {
-            System.out.println("put item: " + item);
             return bag.putItem(item);
         }
         return false;

@@ -20,7 +20,6 @@ public class Bag {
     public boolean putItem(Item item) {
         if (maxCapacity > items.size()) {
             items.add(item);
-            System.out.println("item added");
             return true;
         }
         return false;

@@ -51,16 +51,13 @@ public class Location {
         String s = loadLocationString();
         String[] properties = s.split(";");
         npcs = loadNpcs(properties[1]);
-        findables = loadItems(properties[2]);
+        findables = loadItems(properties[3]);
     }
 
     public Efect apply() {
         return applayble;
     }
 
-    public Item search() {
-        return null;
-    }
 
     public String soutNpcs() {
         String s = "";
@@ -76,7 +73,7 @@ public class Location {
     }
 
     // reads from file
-    // file order is NPCS, effects, items
+    // file order is NPCS, effect, items
     private String loadLocationString() {
         try {
             BufferedReader bf = new BufferedReader(new FileReader("src/DataFiles/MapFiles/MapProperties"));
