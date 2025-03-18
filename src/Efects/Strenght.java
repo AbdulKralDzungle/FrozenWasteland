@@ -10,4 +10,9 @@ public class Strenght extends Efect {
     public boolean remove() {
         return false;
     }
+
+    @Override
+    public String description() {
+        return "Strenght#Description";
+    }
 }

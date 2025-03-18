@@ -10,4 +10,9 @@ public class Bleeding extends Efect {
     public boolean remove() {
         return false;
     }
+
+    @Override
+    public String description() {
+        return "Bleeding#Description";
+    }
 }

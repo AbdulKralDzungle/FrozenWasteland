@@ -63,9 +63,16 @@ public class Player {
     public String soutItems() {
         ArrayList<Item> items = bag.getItems();
         String s = "";
-        System.out.println(items.size());
         for (Item item : items) {
             String temp[] = item.description().split("#");
+            s = s + temp[0] + " ";
+        }
+        return s;
+    }
+    public String soutEfects() {
+        String s = "";
+        for (Efect efect : effects) {
+            String temp[] = efect.description().split("#");
             s = s + temp[0] + " ";
         }
         return s;
