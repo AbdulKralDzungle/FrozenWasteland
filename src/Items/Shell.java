@@ -17,7 +17,7 @@ public class Shell extends Item{
 
     @Override
     public String description() {
-        return "";
+        return "Shell#Descriptio";
     }
 
     @Override

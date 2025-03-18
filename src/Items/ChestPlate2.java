@@ -17,7 +17,7 @@ public class ChestPlate2 extends Item{
 
     @Override
     public String description() {
-        return "";
+        return "ChestPlate2#Description";
     }
 
     @Override

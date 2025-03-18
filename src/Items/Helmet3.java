@@ -17,7 +17,7 @@ public class Helmet3 extends Item{
 
     @Override
     public String description() {
-        return "";
+        return "Helmet3#Descriptio";
     }
 
     @Override

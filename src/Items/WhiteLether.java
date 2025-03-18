@@ -17,7 +17,7 @@ public class WhiteLether extends Item{
 
     @Override
     public String description() {
-        return "";
+        return "WhiteLether#Description";
     }
 
     @Override

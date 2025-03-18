@@ -17,7 +17,7 @@ public class Sunflowers extends Item{
 
     @Override
     public String description() {
-        return "";
+        return "Sunflowers#Descriptio";
     }
 
     @Override

@@ -17,7 +17,7 @@ public class ToughtLether extends Item{
 
     @Override
     public String description() {
-        return "";
+        return "ToughtLether#Descriptio";
     }
 
     @Override

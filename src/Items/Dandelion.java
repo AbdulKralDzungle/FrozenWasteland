@@ -17,7 +17,7 @@ public class Dandelion extends Item{
 
     @Override
     public String description() {
-        return "";
+        return "Dandelion#Description";
     }
 
     @Override

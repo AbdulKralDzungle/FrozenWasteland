@@ -17,7 +17,7 @@ public class Calendula extends Item{
 
     @Override
     public String description() {
-        return "";
+        return "Calendula#Description";
     }
 
     @Override

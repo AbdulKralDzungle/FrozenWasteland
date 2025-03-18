@@ -147,7 +147,9 @@ public class Consol {
     }
 
     private String soutEndTurnInfo() {
-        return "turn ended" + " entities: " + this.wm.getCurrentLoc().soutNpcs() + " ";
+        return "turn ended" + " entities: " + this.wm.getCurrentLoc().soutNpcs()
+                + "\n" + " items: " +
+                player.soutItems() + " ";
     }
 
     private String soutSoftInfo() {

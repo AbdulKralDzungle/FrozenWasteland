@@ -17,7 +17,7 @@ public class WetWood extends Item{
 
     @Override
     public String description() {
-        return "";
+        return "WetWood#Descriptio";
     }
 
     @Override

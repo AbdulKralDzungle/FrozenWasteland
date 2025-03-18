@@ -2,6 +2,7 @@ package Player;
 
 import Efects.Efect;
 import Items.Item;
+import Npcs.Npc;
 
 import java.util.ArrayList;
 
@@ -13,7 +14,11 @@ public class Player {
     private Bag bag;
 
     public boolean putItem(Item item) {
-        return true;
+        if (item != null) {
+            System.out.println("put item: " + item);
+            return bag.putItem(item);
+        }
+        return false;
     }
 
     public boolean removeItem(int index) {
@@ -54,6 +59,17 @@ public class Player {
         money = 100;
         bag = new Bag();
         effects = new ArrayList<>();
+    }
+
+    public String soutItems() {
+        ArrayList<Item> items = bag.getItems();
+        String s = "";
+        System.out.println(items.size());
+        for (Item item : items) {
+            String temp[] = item.description().split("#");
+            s = s + temp[0] + " ";
+        }
+        return s;
     }
 
     public void ubdate() {

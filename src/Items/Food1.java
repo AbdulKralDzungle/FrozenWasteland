@@ -17,7 +17,7 @@ public class Food1 extends Item{
 
     @Override
     public String description() {
-        return "";
+        return "Food1#Description";
     }
 
     @Override

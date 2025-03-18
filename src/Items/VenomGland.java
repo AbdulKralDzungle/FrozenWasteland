@@ -17,7 +17,7 @@ public class VenomGland extends Item{
 
     @Override
     public String description() {
-        return "";
+        return "VenomGland#Descriptio";
     }
 
     @Override

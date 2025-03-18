@@ -17,7 +17,7 @@ public class Stone extends Item{
 
     @Override
     public String description() {
-        return "";
+        return "Stone#Descriptio";
     }
 
     @Override

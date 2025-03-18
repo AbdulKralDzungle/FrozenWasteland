@@ -17,7 +17,7 @@ public class Clought extends Item{
 
     @Override
     public String description() {
-        return "";
+        return "Clought#Description";
     }
 
     @Override

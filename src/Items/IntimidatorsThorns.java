@@ -17,7 +17,7 @@ public class IntimidatorsThorns extends Item{
 
     @Override
     public String description() {
-        return "";
+        return "IntimidatorsThorns#Descriptio";
     }
 
     @Override

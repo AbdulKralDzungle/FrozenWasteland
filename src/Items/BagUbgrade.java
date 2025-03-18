@@ -17,7 +17,7 @@ public class BagUbgrade extends Item{
 
     @Override
     public String description() {
-        return "";
+        return "BagUbgrade#Description";
     }
 
     @Override

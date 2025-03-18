@@ -17,7 +17,7 @@ public class StrangeEye extends Item{
 
     @Override
     public String description() {
-        return "";
+        return "StrangeEye#Descriptio";
     }
 
     @Override

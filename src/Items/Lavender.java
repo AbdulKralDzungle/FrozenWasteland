@@ -17,7 +17,7 @@ public class Lavender extends Item{
 
     @Override
     public String description() {
-        return "";
+        return "Levander#Descriptio";
     }
 
     @Override

@@ -17,7 +17,7 @@ public class Lether extends Item{
 
     @Override
     public String description() {
-        return "";
+        return "Lether#Descriptio";
     }
 
     @Override

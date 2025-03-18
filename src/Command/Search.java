@@ -6,9 +6,15 @@ import Map.WorldMap;
 import Npcs.Npc;
 import Player.Player;
 
-public class Search extends Command{
+import java.util.ArrayList;
+import java.util.Random;
+
+public class Search extends Command {
+    ArrayList<Item> items;
+
     @Override
     public String execute(WorldMap wm, String subject, Npc interactible) {
+        items = wm.getCurrentLoc().getFindables();
         return "prohledano";
     }
 
@@ -54,7 +60,8 @@ public class Search extends Command{
 
     @Override
     public Item gainItem() {
-        return null;
+        Random rn = new Random();
+        return items.get(rn.nextInt(items.size()));
     }
 
     @Override

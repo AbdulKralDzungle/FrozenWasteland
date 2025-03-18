@@ -17,7 +17,7 @@ public class ScrapMetal extends Item{
 
     @Override
     public String description() {
-        return "";
+        return "ScrapMetal#Descriptio";
     }
 
     @Override

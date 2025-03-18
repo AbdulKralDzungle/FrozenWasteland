@@ -17,7 +17,7 @@ public class SharpBones extends Item{
 
     @Override
     public String description() {
-        return "";
+        return "SharpBones#Descriptio";
     }
 
     @Override

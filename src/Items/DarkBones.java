@@ -17,7 +17,7 @@ public class DarkBones extends Item{
 
     @Override
     public String description() {
-        return "";
+        return "DarkBones#Description";
     }
 
     @Override
