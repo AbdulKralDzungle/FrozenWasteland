@@ -70,7 +70,7 @@ public class Location {
             String s;
             do {
                 s = bf.readLine();
-            } while (s.startsWith(this.id + ""));
+            } while (!s.startsWith(this.id + ""));
             return s;
         } catch (Exception e) {
             throw new RuntimeException(e);

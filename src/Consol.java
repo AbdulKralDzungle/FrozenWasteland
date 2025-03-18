@@ -110,11 +110,8 @@ public class Consol {
                     } else {
                         return soutSoftInfo();
                     }
-
                 }
-
                 return "nedostatek energie";
-
             } else {
                 return "invalid command";
             }
