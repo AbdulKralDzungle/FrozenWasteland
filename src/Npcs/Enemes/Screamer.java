@@ -5,6 +5,12 @@ import Efects.Efect;
 import java.util.ArrayList;
 
 public class Screamer extends Eneme {
+    private int hp;
+
+    public Screamer() {
+        this.hp = 100;
+    }
+
     @Override
     public String description() {
         return "Screamer#Description";
@@ -12,7 +18,8 @@ public class Screamer extends Eneme {
 
     @Override
     public boolean takeDmg(int dmg) {
-        return false;
+        hp -= dmg;
+        return hp <= 0;
     }
 
     @Override

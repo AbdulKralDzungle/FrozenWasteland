@@ -4,7 +4,13 @@ import Efects.Efect;
 
 import java.util.ArrayList;
 
-public class TheOne extends Eneme{
+public class TheOne extends Eneme {
+    private int hp;
+
+    public TheOne() {
+        this.hp = 100;
+    }
+
     @Override
     public String description() {
         return "TheOne#Description";
@@ -12,7 +18,8 @@ public class TheOne extends Eneme{
 
     @Override
     public boolean takeDmg(int dmg) {
-        return false;
+        hp -= dmg;
+        return hp <= 0;
     }
 
     @Override

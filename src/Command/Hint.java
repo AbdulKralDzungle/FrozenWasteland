@@ -57,8 +57,4 @@ public class Hint extends Command{
         return null;
     }
 
-    @Override
-    public int dealDamage() {
-        return 0;
-    }
 }

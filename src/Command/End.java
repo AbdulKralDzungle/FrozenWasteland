@@ -57,8 +57,4 @@ public class End extends Command {
         return null;
     }
 
-    @Override
-    public int dealDamage() {
-        return 0;
-    }
 }

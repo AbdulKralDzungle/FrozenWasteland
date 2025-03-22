@@ -64,8 +64,4 @@ public class Search extends Command {
         return items.get(rn.nextInt(items.size()));
     }
 
-    @Override
-    public int dealDamage() {
-        return 0;
-    }
 }

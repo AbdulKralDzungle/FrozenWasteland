@@ -5,14 +5,20 @@ import Efects.Efect;
 import java.util.ArrayList;
 
 public class Crawler extends Eneme{
+    private int hp;
     @Override
     public String description() {
         return "Crawler#Description";
     }
 
+    public Crawler() {
+        this.hp = 100;
+    }
+
     @Override
     public boolean takeDmg(int dmg) {
-        return false;
+        hp -= dmg;
+        return hp <= 0;
     }
 
     @Override

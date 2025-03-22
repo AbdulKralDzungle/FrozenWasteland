@@ -27,5 +27,4 @@ public abstract class Command {
 
     public abstract Item gainItem();//
 
-    public abstract int dealDamage();
 }

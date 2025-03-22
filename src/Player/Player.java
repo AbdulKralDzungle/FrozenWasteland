@@ -49,7 +49,9 @@ public class Player {
     }
 
     public void applyEffect(Efect e) {
-        effects.add(e);
+        if (e != null) {
+            effects.add(e);
+        }
     }
 
     public void inicialize() {
@@ -69,6 +71,7 @@ public class Player {
         }
         return s;
     }
+
     public String soutEfects() {
         String s = "";
         for (Efect efect : effects) {

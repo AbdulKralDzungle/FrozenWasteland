@@ -4,20 +4,29 @@ import Efects.Efect;
 import Items.Item;
 import Map.WorldMap;
 import Npcs.Enemes.Eneme;
+import Npcs.Enemes.TheOne;
 import Npcs.Npc;
 import Player.Player;
 
 public class Attack extends Command {
     private Npc interactible;
+    private boolean isDead;
 
     @Override
     public String execute(WorldMap wm, String subject, Npc interactible) {
+        isDead = false;
         this.interactible = interactible;
+        if (interactible instanceof Eneme) {
+            isDead = ((Eneme) interactible).takeDmg(20);
+        }
         return "bum";
     }
 
     @Override
     public boolean exit() {
+        if (interactible instanceof TheOne) {
+            return isDead;
+        }
         return false;
     }
 
@@ -28,7 +37,7 @@ public class Attack extends Command {
 
     @Override
     public boolean endsTurn() {
-        return true;
+        return isDead;
     }
 
     @Override
@@ -38,6 +47,9 @@ public class Attack extends Command {
 
     @Override
     public Npc startInteraction() {
+        if (isDead) {
+            return null;
+        }
         return interactible;
     }
 
@@ -61,8 +73,4 @@ public class Attack extends Command {
         return null;
     }
 
-    @Override
-    public int dealDamage() {
-        return 0;
-    }
 }

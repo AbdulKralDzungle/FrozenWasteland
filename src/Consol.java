@@ -82,7 +82,6 @@ public class Consol {
     private String executeInteraction(String[] command) {
         if (command.length == 2) {
             if (interactions.containsKey(command[0]) && command[1].matches("^[0-9]*$")) {
-                exit = interactions.get(command[0]).exit();
                 Command cmd = interactions.get(command[0]);
                 System.out.println("uvnitr interakce");
                 if (player.removeEnergy(cmd.energyCost())) {
@@ -97,7 +96,6 @@ public class Consol {
                         player.gainMoney(cmd.gainMoney());
                     } else {
                         player.applyEffect(cmd.apply());
-                        ((Eneme) interactibleEntiti).takeDmg(cmd.dealDamage());
                     }
                     //---------------------------------------//
                     if (cmd.removesItem()) {
@@ -105,6 +103,7 @@ public class Consol {
                     }
                     System.out.println(text);
                     interactibleEntiti = cmd.startInteraction();
+                    exit = interactions.get(command[0]).exit();
                     if (cmd.endsTurn()) {
                         endTurn();
                         return soutEndTurnInfo();
@@ -123,7 +122,6 @@ public class Consol {
     private String executeTurn(String[] command) {
         if (command.length == 2) {
             if (commands.containsKey(command[0])) {
-                exit = commands.get(command[0]).exit();
                 Command cmd = commands.get(command[0]);
                 if (player.removeEnergy(cmd.energyCost())) {
                     String text = cmd.execute(wm, command[1], interactibleEntiti);
@@ -131,6 +129,7 @@ public class Consol {
                     player.putItem(cmd.gainItem());
                     System.out.println(text);
                     interactibleEntiti = cmd.startInteraction();
+                    exit = commands.get(command[0]).exit();
                     if (cmd.endsTurn()) {
                         endTurn();
                         return soutEndTurnInfo();

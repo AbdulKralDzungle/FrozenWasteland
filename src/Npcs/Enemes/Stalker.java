@@ -5,6 +5,12 @@ import Efects.Efect;
 import java.util.ArrayList;
 
 public class Stalker extends Eneme {
+    private int hp;
+
+    public Stalker() {
+        this.hp = 100;
+    }
+
     @Override
     public String description() {
         return "Stalker#Description";
@@ -12,7 +18,8 @@ public class Stalker extends Eneme {
 
     @Override
     public boolean takeDmg(int dmg) {
-        return false;
+        hp -= dmg;
+        return hp <= 0;
     }
 
     @Override
