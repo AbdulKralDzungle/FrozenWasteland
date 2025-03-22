@@ -1,14 +1,25 @@
 package Efects;
 
+import Player.Player;
+
 public class Weekness extends Efect {
-    @Override
-    public boolean apply() {
-        return false;
+    private int lenght;
+
+    public Weekness() {
+        lenght = 0;
     }
 
     @Override
-    public boolean remove() {
+    public boolean apply(Player player) {
+        player.addDmg(-4);
+        player.takeDmg(0);
+        player.addEnergyMultiplier(1);
+        lenght++;
         return false;
+    }
+
+    public boolean remove() {
+        return lenght > 6;
     }
 
     @Override

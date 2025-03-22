@@ -1,14 +1,24 @@
 package Efects;
 
+import Player.Player;
+
 public class Freez extends Efect {
-    @Override
-    public boolean apply() {
-        return false;
+    private int lenght;
+
+    public Freez() {
+        lenght = 0;
     }
 
     @Override
-    public boolean remove() {
+    public boolean apply(Player player) {
+        player.addDmg(-3);
+        player.takeDmg(2);
+        player.addEnergyMultiplier(0.5);
+        lenght++;
         return false;
+    }
+    public boolean remove() {
+        return lenght > 2;
     }
 
     @Override

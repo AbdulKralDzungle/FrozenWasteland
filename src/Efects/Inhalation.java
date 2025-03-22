@@ -1,14 +1,25 @@
 package Efects;
 
+import Player.Player;
+
 public class Inhalation extends Efect {
-    @Override
-    public boolean apply() {
-        return false;
+    private int lenght;
+
+    public Inhalation() {
+        lenght = 0;
     }
 
     @Override
-    public boolean remove() {
+    public boolean apply(Player player) {
+        player.addDmg(-8);
+        player.takeDmg(8);
+        player.addEnergyMultiplier(0.5);
+        lenght++;
         return false;
+    }
+
+    public boolean remove() {
+        return lenght > 3;
     }
 
     @Override

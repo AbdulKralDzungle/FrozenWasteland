@@ -10,14 +10,19 @@ public class Player {
     private int hp;
     private int energy;
     private int money;
+    private int resistance;
+    private int bonusDmg;
+    private double energyMultiplier;
     private ArrayList<Efect> effects;
     private Bag bag;
 
-    public boolean putItem(Item item) {
-        if (item != null) {
-            return bag.putItem(item);
-        }
-        return false;
+    public Player() {
+        this.hp = 100;
+        this.energy = 100;
+        this.money = 0;
+        this.bonusDmg = 0;
+        this.resistance = 0;
+        this.energyMultiplier = 1;
     }
 
     public boolean removeItem(int index) {
@@ -26,6 +31,13 @@ public class Player {
 
     public String getItemList() {
         return "";
+    }
+
+    public boolean putItem(Item item) {
+        if (item != null) {
+            return bag.putItem(item);
+        }
+        return false;
     }
 
     public boolean removeEnergy(int energy) {
@@ -72,6 +84,20 @@ public class Player {
         return s;
     }
 
+    public void addDmg(int amount) {
+        bonusDmg += amount;
+    }
+
+    public void addEnergyMultiplier(double amount) {
+        energyMultiplier += amount;
+    }
+
+    public void takeDmg(int dmg) {
+        if (dmg > resistance) {
+            hp -= dmg - resistance;
+        }
+    }
+
     public String soutEfects() {
         String s = "";
         for (Efect efect : effects) {
@@ -82,6 +108,9 @@ public class Player {
     }
 
     public void ubdate() {
-
+        bonusDmg = 0;
+        for (int i = 0; i < effects.size(); i++) {
+            effects.get(i).apply(this);
+        }
     }
 }

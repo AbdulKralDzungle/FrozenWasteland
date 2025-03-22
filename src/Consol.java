@@ -75,6 +75,7 @@ public class Consol {
                 System.out.println(executeTurn(split));
                 System.out.println("--------------------------------------------------//-------------------------------------------------");
             }
+            player.ubdate();
         } while (!exit);
         sc.close();
     }
