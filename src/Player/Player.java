@@ -109,8 +109,14 @@ public class Player {
 
     public void ubdate() {
         bonusDmg = 0;
-        for (int i = 0; i < effects.size(); i++) {
-            effects.get(i).apply(this);
+        ArrayList<Efect> nextEffects = new ArrayList<>();
+        for (Efect effect : effects) {
+            effect.apply(this);
+            if (!effect.remove()) {
+                nextEffects.add(effect);
+            }
         }
+        effects.clear();
+        effects.addAll(nextEffects);
     }
 }

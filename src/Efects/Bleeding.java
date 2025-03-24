@@ -14,13 +14,13 @@ public class Bleeding extends Efect {
         player.addDmg(-2);
         player.takeDmg(4);
         player.addEnergyMultiplier(0.2);
-        lenght++;
         return false;
     }
 
     @Override
     public boolean remove() {
-        return lenght > 4;
+        this.lenght++;
+        return this.lenght > 4;
     }
 
     @Override

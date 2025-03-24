@@ -14,11 +14,12 @@ public class Strenght extends Efect {
         player.addDmg(10);
         player.takeDmg(0);
         player.addEnergyMultiplier(-0.4);
-        lenght++;
         return false;
     }
     public boolean remove() {
-        return lenght > 4;
+        this.lenght++;
+        System.out.println(this.lenght);
+        return this.lenght > 4;
     }
 
     @Override

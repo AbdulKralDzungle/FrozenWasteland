@@ -14,11 +14,12 @@ public class Freez extends Efect {
         player.addDmg(-3);
         player.takeDmg(2);
         player.addEnergyMultiplier(0.5);
-        lenght++;
+
         return false;
     }
     public boolean remove() {
-        return lenght > 2;
+        this.lenght++;
+        return this.lenght > 2;
     }
 
     @Override

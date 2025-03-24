@@ -14,12 +14,13 @@ public class Exhoustion extends Efect {
         player.addDmg(-10);
         player.takeDmg(0);
         player.addEnergyMultiplier(1.5);
-        lenght++;
         return false;
     }
+
     @Override
     public boolean remove() {
-        return lenght > 5;
+        this.lenght++;
+        return this.lenght > 5;
     }
 
 

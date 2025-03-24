@@ -14,12 +14,12 @@ public class Inhalation extends Efect {
         player.addDmg(-8);
         player.takeDmg(8);
         player.addEnergyMultiplier(0.5);
-        lenght++;
         return false;
     }
 
     public boolean remove() {
-        return lenght > 3;
+        this.lenght++;
+        return this.lenght > 3;
     }
 
     @Override

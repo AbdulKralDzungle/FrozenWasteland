@@ -14,12 +14,13 @@ public class Weekness extends Efect {
         player.addDmg(-4);
         player.takeDmg(0);
         player.addEnergyMultiplier(1);
-        lenght++;
         return false;
     }
 
     public boolean remove() {
-        return lenght > 6;
+        this.lenght++;
+        System.out.println(this.lenght);
+        return this.lenght > 6;
     }
 
     @Override

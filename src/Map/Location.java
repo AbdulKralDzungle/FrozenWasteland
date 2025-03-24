@@ -17,7 +17,7 @@ public class Location {
     private int id;
     private ArrayList<Item> findables;
     private ArrayList<Npc> npcs;
-    private Efect applayble;
+    private int applayble;
 
 
     public String getName() {
@@ -39,10 +39,6 @@ public class Location {
         initialize();
     }
 
-    public Efect getApplayble() {
-        return applayble;
-    }
-
     public ArrayList<Item> getFindables() {
         return findables;
     }
@@ -51,12 +47,14 @@ public class Location {
         String s = loadLocationString();
         String[] properties = s.split(";");
         npcs = loadNpcs(properties[1]);
-        applayble = loadApplyable(properties[2]);
+        if (properties[2].matches("^[0-9]*$")) {
+            applayble = Integer.parseInt(properties[2]);
+        }
         findables = loadItems(properties[3]);
     }
 
     public Efect apply() {
-        return applayble;
+        return loadApplyable(this.applayble);
     }
 
 
@@ -93,41 +91,37 @@ public class Location {
         String[] idPole = ids.split("#");
         ArrayList<Npc> npcs = new ArrayList<>();
         for (String s : idPole) {
-            if (s.matches("^[0-9]*$")) {
-                npcs.add(switch (Integer.parseInt(s)) {
-                    case 0 -> new Centipede();
-                    case 1 -> new Crawler();
-                    case 2 -> new Intimidator();
-                    case 3 -> new Screamer();
-                    case 4 -> new Stalker();
-                    case 5 -> new TheOne();
-                    case 6 -> new BoneMan();
-                    case 7 -> new Mike();
-                    case 8 -> new Timmy();
-                    case 9 -> new TavernMaster();
-                    case 10 -> new Travelers();
-                    default -> throw new IllegalStateException("Unexpected value: " + Integer.parseInt(s));
-                });
-            }
+
+            npcs.add(switch (Integer.parseInt(s)) {
+                case 0 -> new Centipede();
+                case 1 -> new Crawler();
+                case 2 -> new Intimidator();
+                case 3 -> new Screamer();
+                case 4 -> new Stalker();
+                case 5 -> new TheOne();
+                case 6 -> new BoneMan();
+                case 7 -> new Mike();
+                case 8 -> new Timmy();
+                case 9 -> new TavernMaster();
+                case 10 -> new Travelers();
+                default -> throw new IllegalStateException("Unexpected value: " + Integer.parseInt(s));
+            });
         }
         return npcs;
     }
 
     //tohle se presune do tridy effect loader
-    private Efect loadApplyable(String id) {
-        if (id.matches("^[0-9]*$")) {
-            return (switch (Integer.parseInt(id)) {
-                case 0 -> null;
-                case 1 -> new Bleeding();
-                case 2 -> new Exhoustion();
-                case 3 -> new Freez();
-                case 4 -> new Inhalation();
-                case 5 -> new Strenght();
-                case 6 -> new Weekness();
-                default -> throw new IllegalStateException("Unexpected value: " + Integer.parseInt(id));
-            });
-        }
-        return null;
+    private Efect loadApplyable(int id) {
+        return (switch (id) {
+            case 0 -> null;
+            case 1 -> new Bleeding();
+            case 2 -> new Exhoustion();
+            case 3 -> new Freez();
+            case 4 -> new Inhalation();
+            case 5 -> new Strenght();
+            case 6 -> new Weekness();
+            default -> throw new IllegalStateException("Unexpected value: " + id);
+        });
     }
 
     // tohle se presune do tridy item loader
