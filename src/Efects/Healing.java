@@ -2,28 +2,28 @@ package Efects;
 
 import Player.Player;
 
-public class Weekness extends Efect {
+public class Healing extends Efect {
     private int lenght;
 
-    public Weekness() {
-        lenght = 0;
+    public Healing() {
+        this.lenght = 0;
     }
 
     @Override
     public boolean apply(Player player) {
-        player.addDmg(-4);
-        player.takeDmg(0);
-        player.addEnergyMultiplier(1);
+        player.addDmg(1);
+        player.takeDmg(-8);
+        player.addEnergyMultiplier(-0.2);
         return false;
     }
 
     public boolean remove() {
         this.lenght++;
-        return this.lenght > 6;
+        return this.lenght > 3;
     }
 
     @Override
     public String description() {
-        return "Weekness#Description";
+        return "Healing#Description";
     }
 }

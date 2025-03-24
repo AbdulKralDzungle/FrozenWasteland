@@ -120,7 +120,9 @@ public class Location {
             case 4 -> new Inhalation();
             case 5 -> new Strenght();
             case 6 -> new Weekness();
-            default -> throw new IllegalStateException("Unexpected value: " + id);
+            case 7 -> new Healing();
+            case 8 -> new Relaxation();
+            default -> new Tasemnice();
         });
     }
 

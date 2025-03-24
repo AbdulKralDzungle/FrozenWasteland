@@ -168,6 +168,7 @@ public class Consol {
             s = s + "\n" + br.readLine();
             s = s + "\ncurrent location ->" + wm.getCurrentName() + "\n";
             s = s + getLocations() + "\n";
+            s = s + player.soutPlayer() + "\n";
             s = s + player.getItemList();
             s = s + ">";
             return s;

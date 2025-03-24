@@ -18,7 +18,6 @@ public class Strenght extends Efect {
     }
     public boolean remove() {
         this.lenght++;
-        System.out.println(this.lenght);
         return this.lenght > 4;
     }
 

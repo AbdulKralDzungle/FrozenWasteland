@@ -107,6 +107,16 @@ public class Player {
         return s;
     }
 
+    public String soutPlayer() {
+        String s = "";
+        s += hp + " ";
+        s += energy + " ";
+        s += money + " ";
+        s += resistance + " ";
+        s += bonusDmg + " ";
+        return s;
+    }
+
     public void ubdate() {
         bonusDmg = 0;
         ArrayList<Efect> nextEffects = new ArrayList<>();
