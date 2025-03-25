@@ -1,5 +1,6 @@
 package Efects;
 
+import Npcs.Enemes.Eneme;
 import Player.Player;
 
 public class Freez extends Efect {
@@ -10,13 +11,20 @@ public class Freez extends Efect {
     }
 
     @Override
-    public boolean apply(Player player) {
+    public boolean applyToPlayer(Player player) {
         player.addDmg(-3);
         player.takeDmg(2);
         player.addEnergyMultiplier(0.5);
 
         return false;
     }
+
+    @Override
+    public boolean applyToMonster(Eneme eneme) {
+        eneme.takeDmg(10);
+        return false;
+    }
+
     public boolean remove() {
         this.lenght++;
         return this.lenght > 2;

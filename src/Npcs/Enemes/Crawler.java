@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class Crawler extends Eneme{
     private int hp;
+    private ArrayList<Efect> efects;
     @Override
     public String description() {
         return "Crawler#Description";
@@ -13,10 +14,14 @@ public class Crawler extends Eneme{
 
     public Crawler() {
         this.hp = 100;
+        efects = new ArrayList<>();
     }
 
     @Override
     public boolean takeDmg(int dmg) {
+        for (Efect efect : efects) {
+            efect.applyToMonster(this);
+        }
         hp -= dmg;
         return hp <= 0;
     }
@@ -24,6 +29,11 @@ public class Crawler extends Eneme{
     @Override
     public int dealDmg() {
         return 0;
+    }
+
+    @Override
+    public void takeEffect(Efect efect) {
+        efects.add(efect);
     }
 
     @Override

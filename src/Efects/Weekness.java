@@ -1,5 +1,6 @@
 package Efects;
 
+import Npcs.Enemes.Eneme;
 import Player.Player;
 
 public class Weekness extends Efect {
@@ -10,10 +11,16 @@ public class Weekness extends Efect {
     }
 
     @Override
-    public boolean apply(Player player) {
+    public boolean applyToPlayer(Player player) {
         player.addDmg(-4);
         player.takeDmg(0);
         player.addEnergyMultiplier(1);
+        return false;
+    }
+
+    @Override
+    public boolean applyToMonster(Eneme eneme) {
+        eneme.takeDmg(10);
         return false;
     }
 

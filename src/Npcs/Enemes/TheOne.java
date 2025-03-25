@@ -28,6 +28,11 @@ public class TheOne extends Eneme {
     }
 
     @Override
+    public void takeEffect(Efect efect) {
+        // nah no efects for bosses
+    }
+
+    @Override
     public ArrayList<Efect> applyEfects() {
         return null;
     }

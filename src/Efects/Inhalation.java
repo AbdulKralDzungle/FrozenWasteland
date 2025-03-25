@@ -1,5 +1,6 @@
 package Efects;
 
+import Npcs.Enemes.Eneme;
 import Player.Player;
 
 public class Inhalation extends Efect {
@@ -10,10 +11,16 @@ public class Inhalation extends Efect {
     }
 
     @Override
-    public boolean apply(Player player) {
+    public boolean applyToPlayer(Player player) {
         player.addDmg(-8);
         player.takeDmg(8);
         player.addEnergyMultiplier(0.5);
+        return false;
+    }
+
+    @Override
+    public boolean applyToMonster(Eneme eneme) {
+        eneme.takeDmg(10);
         return false;
     }
 

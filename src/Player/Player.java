@@ -125,7 +125,7 @@ public class Player {
         bonusDmg = 0;
         ArrayList<Efect> nextEffects = new ArrayList<>();
         for (Efect effect : effects) {
-            effect.apply(this);
+            effect.applyToPlayer(this);
             if (!effect.remove()) {
                 nextEffects.add(effect);
             }
