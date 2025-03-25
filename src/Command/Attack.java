@@ -13,11 +13,11 @@ public class Attack extends Command {
     private boolean isDead;
 
     @Override
-    public String execute(WorldMap wm, String subject, Npc interactible) {
+    public String execute(WorldMap wm, String subject, Npc interactible, Player player) {
         isDead = false;
         this.interactible = interactible;
         if (interactible instanceof Eneme) {
-            isDead = ((Eneme) interactible).takeDmg(20);
+            isDead = ((Eneme) interactible).takeDmg(20 + player.getBonusDmg());
         }
         return "bum";
     }

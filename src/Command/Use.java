@@ -6,10 +6,11 @@ import Map.WorldMap;
 import Npcs.Npc;
 import Player.Player;
 
-public class Use extends Command{
+public class Use extends Command {
     private Npc interactible;
+
     @Override
-    public String execute(WorldMap wm, String subject, Npc interactible) {
+    public String execute(WorldMap wm, String subject, Npc interactible, Player player) {
         this.interactible = interactible;
         return "pouzito";
     }

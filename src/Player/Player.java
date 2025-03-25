@@ -2,6 +2,7 @@ package Player;
 
 import Efects.Efect;
 import Items.Item;
+import Npcs.Enemes.Eneme;
 import Npcs.Npc;
 
 import java.util.ArrayList;
@@ -16,15 +17,6 @@ public class Player {
     private ArrayList<Efect> effects;
     private Bag bag;
 
-    public Player() {
-        this.hp = 100;
-        this.energy = 100;
-        this.money = 0;
-        this.bonusDmg = 0;
-        this.resistance = 0;
-        this.energyMultiplier = 1;
-    }
-
     public boolean removeItem(int index) {
         return true;
     }
@@ -38,6 +30,10 @@ public class Player {
             return bag.putItem(item);
         }
         return false;
+    }
+
+    public int getBonusDmg() {
+        return bonusDmg;
     }
 
     public boolean removeEnergy(int energy) {
@@ -67,9 +63,12 @@ public class Player {
     }
 
     public void inicialize() {
-        hp = 100;
-        energy = 100;
-        money = 100;
+        this.hp = 100;
+        this.energy = 100;
+        this.money = 0;
+        this.bonusDmg = 0;
+        this.resistance = 0;
+        this.energyMultiplier = 1;
         bag = new Bag();
         effects = new ArrayList<>();
     }
@@ -109,15 +108,15 @@ public class Player {
 
     public String soutPlayer() {
         String s = "";
-        s += hp + " ";
-        s += energy + " ";
-        s += money + " ";
-        s += resistance + " ";
-        s += bonusDmg + " ";
+        s += "hp: " + hp + " ";
+        s += "energy: " + energy + " ";
+        s += "money: " + money + " ";
+        s += "resistance: " + resistance + " ";
+        s += "bonusDmg: " + bonusDmg + " ";
         return s;
     }
 
-    public void ubdate() {
+    public void ubdate(Npc interactible) {
         bonusDmg = 0;
         ArrayList<Efect> nextEffects = new ArrayList<>();
         for (Efect effect : effects) {
@@ -128,5 +127,9 @@ public class Player {
         }
         effects.clear();
         effects.addAll(nextEffects);
+        if (interactible instanceof Eneme) {
+            hp -= ((Eneme) interactible).dealDmg();
+        }
+
     }
 }

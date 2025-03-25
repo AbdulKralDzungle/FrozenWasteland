@@ -7,7 +7,7 @@ import Npcs.Npc;
 import Player.Player;
 
 public abstract class Command {
-    public abstract String execute(WorldMap wm, String subject, Npc interactible); //
+    public abstract String execute(WorldMap wm, String subject, Npc interactible, Player player); //
 
     public abstract boolean exit();//
 

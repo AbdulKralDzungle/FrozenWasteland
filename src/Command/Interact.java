@@ -12,7 +12,7 @@ public class Interact extends Command {
     private Npc npc;
 
     @Override
-    public String execute(WorldMap wm, String subject, Npc interactible) {
+    public String execute(WorldMap wm, String subject, Npc interactible, Player player) {
         ArrayList<Npc> npcs = wm.getCurrentLoc().getNpcs();
         npc = npcs.get(Integer.parseInt(subject));
         return "interagovano";

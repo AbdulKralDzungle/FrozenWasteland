@@ -11,7 +11,6 @@ public abstract class Eneme extends Npc {
 
     public abstract boolean takeDmg(int dmg);
 
-
     public abstract int dealDmg();
 
     public abstract ArrayList<Efect> applyEfects();

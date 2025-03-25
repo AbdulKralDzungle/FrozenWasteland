@@ -75,7 +75,7 @@ public class Consol {
                 System.out.println(executeTurn(split));
                 System.out.println("--------------------------------------------------//-------------------------------------------------");
             }
-            player.ubdate();
+            player.ubdate(interactibleEntiti);
         } while (!exit);
         sc.close();
     }
@@ -88,7 +88,7 @@ public class Consol {
                 if (player.removeEnergy(cmd.energyCost())) {
                     //---------------------------------------//
                     // jeste rozdelim do metod and staff
-                    String text = cmd.execute(wm, command[1], interactibleEntiti);
+                    String text = cmd.execute(wm, command[1], interactibleEntiti, player);
 
                     //---------------------------------------//
                     if (interactibleEntiti instanceof FriendlyNPC) {
@@ -105,6 +105,7 @@ public class Consol {
                     System.out.println(text);
                     interactibleEntiti = cmd.startInteraction();
                     exit = interactions.get(command[0]).exit();
+                    wm.ubdate();
                     if (cmd.endsTurn()) {
                         endTurn();
                         return soutEndTurnInfo();
@@ -125,12 +126,13 @@ public class Consol {
             if (commands.containsKey(command[0])) {
                 Command cmd = commands.get(command[0]);
                 if (player.removeEnergy(cmd.energyCost())) {
-                    String text = cmd.execute(wm, command[1], interactibleEntiti);
+                    String text = cmd.execute(wm, command[1], interactibleEntiti, player);
                     player.applyEffect(wm.getCurrentLoc().apply());
                     player.putItem(cmd.gainItem());
                     System.out.println(text);
                     interactibleEntiti = cmd.startInteraction();
                     exit = commands.get(command[0]).exit();
+                    wm.ubdate();
                     if (cmd.endsTurn()) {
                         endTurn();
                         return soutEndTurnInfo();

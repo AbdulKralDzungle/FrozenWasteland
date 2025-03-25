@@ -34,6 +34,7 @@ public class Location {
     }
 
     public Location(int id, String name, int[] goToLocations) {
+        unitLoader = new UnitLoader();
         this.name = name;
         this.id = id;
         this.goToLocations = goToLocations;
@@ -87,11 +88,18 @@ public class Location {
         }
     }
 
-    // this is only place NPCs are going to be loaded
-
-
-    //tohle se presune do tridy effect loader
-
-    // tohle se presune do tridy item loader
+    public void ubdate() {
+        ArrayList<Npc> nextNpcs = new ArrayList<>();
+        for (Npc npc : npcs) {
+            if (npc instanceof Eneme  ) {
+                if(!((Eneme) npc).takeDmg(0)){
+                    nextNpcs.add(npc);
+                }
+            }else {
+                nextNpcs.add(npc);
+            }
+        }
+        npcs = nextNpcs;
+    }
 
 }

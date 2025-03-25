@@ -13,7 +13,7 @@ public class Search extends Command {
     ArrayList<Item> items;
 
     @Override
-    public String execute(WorldMap wm, String subject, Npc interactible) {
+    public String execute(WorldMap wm, String subject, Npc interactible, Player player) {
         items = wm.getCurrentLoc().getFindables();
         return "prohledano";
     }

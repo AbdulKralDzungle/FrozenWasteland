@@ -89,4 +89,10 @@ public class WorldMap {
         }
         return s;
     }
+
+    public void ubdate() {
+        world.forEach((key, location) -> {
+            location.ubdate();
+        });
+    }
 }

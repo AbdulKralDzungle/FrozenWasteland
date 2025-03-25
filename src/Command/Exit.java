@@ -8,7 +8,7 @@ import Player.Player;
 
 public class Exit extends Command{
     @Override
-    public String execute(WorldMap wm, String subject, Npc interactible) {
+    public String execute(WorldMap wm, String subject, Npc interactible, Player player) {
         return "program byl ukoncen";
     }
 

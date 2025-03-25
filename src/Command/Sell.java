@@ -9,7 +9,7 @@ import Player.Player;
 public class Sell extends Command{
     private Npc interactible;
     @Override
-    public String execute(WorldMap wm, String subject, Npc interactible) {
+    public String execute(WorldMap wm, String subject, Npc interactible, Player player) {
         this.interactible = interactible;
         return "prodano";
     }
