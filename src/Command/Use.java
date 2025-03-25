@@ -2,16 +2,26 @@ package Command;
 
 import Efects.Efect;
 import Items.Item;
+import Map.UnitLoader;
 import Map.WorldMap;
+import Npcs.Enemes.Eneme;
 import Npcs.Npc;
 import Player.Player;
 
 public class Use extends Command {
     private Npc interactible;
+    private boolean isDead;
+    private Item item;
 
     @Override
     public String execute(WorldMap wm, String subject, Npc interactible, Player player) {
         this.interactible = interactible;
+        item = player.getItem(Integer.parseInt(subject));
+        isDead = false;
+        this.interactible = interactible;
+        if (interactible instanceof Eneme) {
+            isDead = ((Eneme) interactible).takeDmg(item.deaDmg() + player.getBonusDmg());
+        }
         return "pouzito";
     }
 
@@ -22,12 +32,12 @@ public class Use extends Command {
 
     @Override
     public Efect apply() {
-        return null;
+        return item.applyEfects();
     }
 
     @Override
     public boolean endsTurn() {
-        return false;
+        return isDead;
     }
 
     @Override
@@ -37,7 +47,10 @@ public class Use extends Command {
 
     @Override
     public Npc startInteraction() {
-        return null;
+        if (isDead) {
+            return null;
+        }
+        return interactible;
     }
 
     @Override
@@ -52,7 +65,7 @@ public class Use extends Command {
 
     @Override
     public boolean removesItem() {
-        return false;
+        return item.isConsumeble();
     }
 
     @Override

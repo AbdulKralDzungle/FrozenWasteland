@@ -13,7 +13,7 @@ public abstract class Item {
 
     public abstract int deaDmg();
 
-    public abstract ArrayList<Efect> applyEfects();
+    public abstract Efect applyEfects();
 
     public abstract boolean isConsumeble();
 }

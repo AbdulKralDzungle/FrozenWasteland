@@ -128,6 +128,7 @@ public class Consol {
                 if (player.removeEnergy(cmd.energyCost())) {
                     String text = cmd.execute(wm, command[1], interactibleEntiti, player);
                     player.applyEffect(wm.getCurrentLoc().apply());
+                    player.applyEffect(cmd.apply());
                     player.putItem(cmd.gainItem());
                     System.out.println(text);
                     interactibleEntiti = cmd.startInteraction();

@@ -4,7 +4,7 @@ import Efects.Efect;
 
 import java.util.ArrayList;
 
-public class Clought extends Item{
+public class Clought extends Item {
     @Override
     public int giveEnergy() {
         return 0;
@@ -26,7 +26,7 @@ public class Clought extends Item{
     }
 
     @Override
-    public ArrayList<Efect> applyEfects() {
+    public Efect applyEfects() {
         return null;
     }
 

@@ -27,7 +27,7 @@ public class Helmet2 extends Item{
     }
 
     @Override
-    public ArrayList<Efect> applyEfects() {
+    public Efect applyEfects() {
         return null;
     }
 

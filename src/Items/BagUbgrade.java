@@ -2,8 +2,6 @@ package Items;
 
 import Efects.Efect;
 
-import java.util.ArrayList;
-
 public class BagUbgrade extends Item{
     @Override
     public int giveEnergy() {
@@ -26,7 +24,7 @@ public class BagUbgrade extends Item{
     }
 
     @Override
-    public ArrayList<Efect> applyEfects() {
+    public Efect applyEfects() {
         return null;
     }
 

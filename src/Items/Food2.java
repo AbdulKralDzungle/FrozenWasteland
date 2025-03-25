@@ -1,10 +1,17 @@
 package Items;
 
 import Efects.Efect;
+import Map.UnitLoader;
 
 import java.util.ArrayList;
 
-public class Food2 extends Item{
+public class Food2 extends Item {
+    UnitLoader loader;
+
+    public Food2() {
+        this.loader = new UnitLoader();
+    }
+
     @Override
     public int giveEnergy() {
         return 0;
@@ -26,8 +33,8 @@ public class Food2 extends Item{
     }
 
     @Override
-    public ArrayList<Efect> applyEfects() {
-        return null;
+    public Efect applyEfects() {
+        return loader.loadApplyable(69);
     }
 
     @Override

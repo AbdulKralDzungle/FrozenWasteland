@@ -73,6 +73,11 @@ public class Player {
         effects = new ArrayList<>();
     }
 
+    public Item getItem(int index) {
+        return bag.getItems().get(index);
+
+    }
+
     public String soutItems() {
         ArrayList<Item> items = bag.getItems();
         String s = "";
