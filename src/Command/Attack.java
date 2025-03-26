@@ -60,7 +60,7 @@ public class Attack extends Command {
 
     @Override
     public int energyCost() {
-        return 0;
+        return 3;
     }
 
     @Override

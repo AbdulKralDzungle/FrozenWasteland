@@ -24,7 +24,7 @@ public class TheOne extends Eneme {
 
     @Override
     public int dealDmg() {
-        return 0;
+        return 65;
     }
 
     @Override

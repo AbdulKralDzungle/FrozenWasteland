@@ -29,7 +29,7 @@ public class Screamer extends Eneme {
 
     @Override
     public int dealDmg() {
-        return 0;
+        return 15;
     }
 
     @Override

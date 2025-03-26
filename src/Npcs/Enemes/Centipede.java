@@ -35,7 +35,7 @@ public class Centipede extends Eneme {
 
     @Override
     public int dealDmg() {
-        return 10;
+        return 30;
     }
 
     @Override

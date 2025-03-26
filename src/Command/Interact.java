@@ -51,7 +51,7 @@ public class Interact extends Command {
 
     @Override
     public int energyCost() {
-        return 0;
+        return 2;
     }
 
     @Override

@@ -29,7 +29,7 @@ public class Stalker extends Eneme {
 
     @Override
     public int dealDmg() {
-        return 0;
+        return 20;
     }
 
     @Override
