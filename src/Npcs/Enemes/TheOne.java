@@ -1,5 +1,6 @@
 package Npcs.Enemes;
 
+import Efects.Bleeding;
 import Efects.Efect;
 
 import java.util.ArrayList;
@@ -34,6 +35,8 @@ public class TheOne extends Eneme {
 
     @Override
     public ArrayList<Efect> applyEfects() {
-        return null;
+        ArrayList<Efect> efects = new ArrayList<>();
+        efects.add(new Bleeding());
+        return efects;
     }
 }

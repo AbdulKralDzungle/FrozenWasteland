@@ -10,12 +10,18 @@ import java.util.ArrayList;
 
 public class Interact extends Command {
     private Npc npc;
+    private boolean valid;
 
     @Override
     public String execute(WorldMap wm, String subject, Npc interactible, Player player) {
         ArrayList<Npc> npcs = wm.getCurrentLoc().getNpcs();
-        npc = npcs.get(Integer.parseInt(subject));
-        return "interagovano";
+        int id = Integer.parseInt(subject);
+        valid = npcs.size() > id;
+        if (valid) {
+            npc = npcs.get(id);
+            return "interagovano";
+        }
+        return "bro what u doang?????????????";
     }
 
     @Override
@@ -40,8 +46,11 @@ public class Interact extends Command {
 
     @Override
     public Npc startInteraction() {
-        System.out.println(npc.description());
-        return npc;
+        if (valid) {
+            System.out.println(npc.description());
+            return npc;
+        }
+        return null;
     }
 
     @Override

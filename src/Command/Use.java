@@ -20,7 +20,7 @@ public class Use extends Command {
         isDead = false;
         this.interactible = interactible;
         if (interactible instanceof Eneme) {
-            isDead = ((Eneme) interactible).takeDmg(item.deaDmg() + player.getBonusDmg());
+            isDead = ((Eneme) interactible).takeDmg(item.deaDmg());
         }
         return "pouzito";
     }
@@ -32,6 +32,10 @@ public class Use extends Command {
 
     @Override
     public Efect apply() {
+        if (item.deaDmg() > 0 && interactible instanceof Eneme) {
+            ((Eneme) interactible).takeEffect(item.applyEfects());
+            return null;
+        }
         return item.applyEfects();
     }
 

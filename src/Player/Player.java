@@ -44,6 +44,10 @@ public class Player {
         return false;
     }
 
+    public boolean isDead() {
+        return hp < 0;
+    }
+
     public void gainMoney(int money) {
         this.money += money;
     }
@@ -74,8 +78,10 @@ public class Player {
     }
 
     public Item getItem(int index) {
-        return bag.getItems().get(index);
-
+        if (bag.getItems().size() > index) {
+            return bag.getItems().get(index);
+        }
+        return null;
     }
 
     public String soutItems() {
@@ -134,6 +140,14 @@ public class Player {
         effects.addAll(nextEffects);
         if (interactible instanceof Eneme) {
             hp -= ((Eneme) interactible).dealDmg();
+            ArrayList<Efect> efects = ((Eneme) interactible).applyEfects();
+            if (efects != null) {
+                for (Efect efect : efects) {
+                    if (efects != null) {
+                        effects.add(efect);
+                    }
+                }
+            }
         }
 
     }

@@ -92,6 +92,7 @@ public class Location {
         ArrayList<Npc> nextNpcs = new ArrayList<>();
         for (Npc npc : npcs) {
             if (npc instanceof Eneme  ) {
+                ((Eneme) npc).applyEfects();
                 if(!((Eneme) npc).takeDmg(0)){
                     nextNpcs.add(npc);
                 }

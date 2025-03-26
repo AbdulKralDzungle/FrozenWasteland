@@ -70,13 +70,13 @@ public class Consol {
             String[] split = command.split(" ");
             if (interactibleEntiti != null) {
                 System.out.println(executeInteraction(split));
-                System.out.println("--------------------------------------------------//-------------------------------------------------");
+                System.out.println("-------------------------------------------------//-------------------------------------------------");
             } else {
                 System.out.println(executeTurn(split));
-                System.out.println("--------------------------------------------------//-------------------------------------------------");
+                System.out.println("-------------------------------------------------//-------------------------------------------------");
             }
             player.ubdate(interactibleEntiti);
-        } while (!exit);
+        } while (!exit && !player.isDead());
         sc.close();
     }
 
@@ -123,7 +123,7 @@ public class Consol {
 
     private String executeTurn(String[] command) {
         if (command.length == 2) {
-            if (commands.containsKey(command[0])) {
+            if (commands.containsKey(command[0]) && command[1].matches("^[0-9]*$")) {
                 Command cmd = commands.get(command[0]);
                 if (player.removeEnergy(cmd.energyCost())) {
                     String text = cmd.execute(wm, command[1], interactibleEntiti, player);

@@ -1,24 +1,31 @@
 package Command;
 
 import Efects.Efect;
+import Efects.Tasemnice;
 import Items.Item;
 import Map.WorldMap;
 import Npcs.Npc;
 import Player.Player;
 
-public class Exit extends Command{
+public class Exit extends Command {
+    private boolean exit;
+
     @Override
     public String execute(WorldMap wm, String subject, Npc interactible, Player player) {
+        exit = Integer.parseInt(subject) != 69;
         return "program byl ukoncen";
     }
 
     @Override
     public boolean exit() {
-        return true;
+        return exit;
     }
 
     @Override
     public Efect apply() {
+        if (!exit) {
+            return new Tasemnice();
+        }
         return null;
     }
 

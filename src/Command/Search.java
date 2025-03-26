@@ -10,12 +10,15 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Search extends Command {
-    ArrayList<Item> items;
+    Random rn;
+    Item item;
 
     @Override
     public String execute(WorldMap wm, String subject, Npc interactible, Player player) {
-        items = wm.getCurrentLoc().getFindables();
-        return "prohledano";
+        rn = new Random();
+        //fuj rozdelit
+        item = wm.getCurrentLoc().getFindables().get(rn.nextInt(wm.getCurrentLoc().getFindables().size()));
+        return "You find: " + item.description();
     }
 
     @Override
@@ -60,8 +63,7 @@ public class Search extends Command {
 
     @Override
     public Item gainItem() {
-        Random rn = new Random();
-        return items.get(rn.nextInt(items.size()));
+        return item;
     }
 
 }

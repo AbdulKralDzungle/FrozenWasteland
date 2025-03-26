@@ -4,9 +4,10 @@ import Efects.Efect;
 
 import java.util.ArrayList;
 
-public class Crawler extends Eneme{
+public class Crawler extends Eneme {
     private int hp;
     private ArrayList<Efect> efects;
+
     @Override
     public String description() {
         return "Crawler#Description";
@@ -23,6 +24,7 @@ public class Crawler extends Eneme{
             efect.applyToMonster(this);
         }
         hp -= dmg;
+        System.out.println(hp);
         return hp <= 0;
     }
 
