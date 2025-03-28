@@ -6,7 +6,7 @@ import Player.Player;
 public abstract class Efect {
     public abstract boolean applyToPlayer(Player player);
 
-    public abstract boolean applyToMonster(Eneme eneme);
+    public abstract void applyToMonster(Eneme eneme);
 
     public abstract boolean remove();
 

@@ -29,6 +29,11 @@ public class TheOne extends Eneme {
     }
 
     @Override
+    public void ubdate() {
+
+    }
+
+    @Override
     public void takeEffect(Efect efect) {
         // nah no efects for bosses
     }

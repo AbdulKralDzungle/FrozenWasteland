@@ -20,9 +20,6 @@ public class Stalker extends Eneme {
 
     @Override
     public boolean takeDmg(int dmg) {
-        for (Efect efect : efects) {
-            efect.applyToMonster(this);
-        }
         hp -= dmg;
         return hp <= 0;
     }
@@ -30,6 +27,13 @@ public class Stalker extends Eneme {
     @Override
     public int dealDmg() {
         return 20;
+    }
+
+    @Override
+    public void ubdate() {
+        for (Efect efect : efects) {
+            efect.applyToMonster(this);
+        }
     }
 
     @Override

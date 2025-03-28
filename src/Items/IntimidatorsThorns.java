@@ -23,7 +23,7 @@ public class IntimidatorsThorns extends Item {
 
     @Override
     public int deaDmg() {
-        return 0;
+        return 20;
     }
 
     @Override

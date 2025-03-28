@@ -13,6 +13,8 @@ public abstract class Eneme extends Npc {
 
     public abstract int dealDmg();
 
+    public abstract void ubdate();
+
     public abstract void takeEffect(Efect efect);
 
     public abstract ArrayList<Efect> applyEfects();

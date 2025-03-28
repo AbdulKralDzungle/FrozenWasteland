@@ -19,9 +19,8 @@ public class Exhoustion extends Efect {
     }
 
     @Override
-    public boolean applyToMonster(Eneme eneme) {
+    public void applyToMonster(Eneme eneme) {
         eneme.takeDmg(10);
-        return false;
     }
 
     @Override

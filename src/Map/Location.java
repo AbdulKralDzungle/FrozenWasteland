@@ -91,12 +91,12 @@ public class Location {
     public void ubdate() {
         ArrayList<Npc> nextNpcs = new ArrayList<>();
         for (Npc npc : npcs) {
-            if (npc instanceof Eneme  ) {
-                ((Eneme) npc).applyEfects();
-                if(!((Eneme) npc).takeDmg(0)){
+            if (npc instanceof Eneme) {
+                ((Eneme) npc).ubdate();
+                if (!((Eneme) npc).takeDmg(0)) {
                     nextNpcs.add(npc);
                 }
-            }else {
+            } else {
                 nextNpcs.add(npc);
             }
         }

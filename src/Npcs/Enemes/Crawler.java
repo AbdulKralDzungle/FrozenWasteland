@@ -20,9 +20,6 @@ public class Crawler extends Eneme {
 
     @Override
     public boolean takeDmg(int dmg) {
-        for (Efect efect : efects) {
-            efect.applyToMonster(this);
-        }
         hp -= dmg;
         System.out.println(hp);
         return hp <= 0;
@@ -31,6 +28,13 @@ public class Crawler extends Eneme {
     @Override
     public int dealDmg() {
         return 10;
+    }
+
+    @Override
+    public void ubdate() {
+        for (Efect efect : efects) {
+            efect.applyToMonster(this);
+        }
     }
 
     @Override

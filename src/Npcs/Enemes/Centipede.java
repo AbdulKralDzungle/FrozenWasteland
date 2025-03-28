@@ -21,14 +21,12 @@ public class Centipede extends Eneme {
 
     public Centipede() {
         this.hp = 100;
-         efects = new ArrayList<>();
+        efects = new ArrayList<>();
     }
 
     @Override
     public boolean takeDmg(int dmg) {
-        for (Efect efect : efects) {
-            efect.applyToMonster(this);
-        }
+
         hp -= dmg;
         return hp <= 0;
     }
@@ -36,6 +34,13 @@ public class Centipede extends Eneme {
     @Override
     public int dealDmg() {
         return 30;
+    }
+
+    @Override
+    public void ubdate() {
+        for (Efect efect : efects) {
+            efect.applyToMonster(this);
+        }
     }
 
     @Override
