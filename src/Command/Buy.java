@@ -3,14 +3,26 @@ package Command;
 import Efects.Efect;
 import Items.Item;
 import Map.WorldMap;
+import Npcs.Friendly.FriendlyNPC;
 import Npcs.Npc;
 import Player.Player;
 
-public class Buy extends Command{
+public class Buy extends Command {
     private Npc interactible;
+    private boolean success;
+    private int index;
+
     @Override
     public String execute(WorldMap wm, String subject, Npc interactible, Player player) {
+        success = false;
         this.interactible = interactible;
+        index = Integer.parseInt(subject);
+        if (interactible instanceof FriendlyNPC) {
+            if (((FriendlyNPC) interactible).getCost(index) > player.getMoney()) {
+                success = true;
+                player.putItem(((FriendlyNPC) interactible).buy(index));
+            }
+        }
         return "koupeno";
     }
 
@@ -31,6 +43,9 @@ public class Buy extends Command{
 
     @Override
     public int gainMoney() {
+        if (success) {
+            return ((FriendlyNPC) interactible).getCost(-index);
+        }
         return 0;
     }
 

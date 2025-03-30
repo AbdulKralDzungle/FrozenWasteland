@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Search extends Command {
-    Random rn;
-    Item item;
+    private Random rn;
+    private Item item;
 
     @Override
     public String execute(WorldMap wm, String subject, Npc interactible, Player player) {

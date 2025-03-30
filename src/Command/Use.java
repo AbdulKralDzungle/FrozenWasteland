@@ -18,7 +18,8 @@ public class Use extends Command {
         this.interactible = interactible;
         item = player.getItem(Integer.parseInt(subject));
         isDead = false;
-        this.interactible = interactible;
+        player.removeEnergy(-item.giveEnergy());
+        player.takeDmg(-item.giveHp());
         if (interactible instanceof Eneme) {
             isDead = ((Eneme) interactible).takeDmg(item.deaDmg());
         }

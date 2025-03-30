@@ -66,10 +66,15 @@ public class Player {
         }
     }
 
+    public int getMoney() {
+        return money;
+    }
+
+
     public void inicialize() {
         this.hp = 100;
         this.energy = 100;
-        this.money = 0;
+        this.money = 999;
         this.bonusDmg = 0;
         this.resistance = 0;
         this.energyMultiplier = 1;

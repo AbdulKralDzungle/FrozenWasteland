@@ -4,6 +4,13 @@ import Items.Item;
 import Npcs.Npc;
 
 public class Mike extends FriendlyNPC {
+    private int[] costs = {0, 0};
+
+    @Override
+    public int getCost(int index) {
+        return costs[index];
+    }
+
     @Override
     public String talk() {
         return "";
@@ -13,6 +20,7 @@ public class Mike extends FriendlyNPC {
     public String getOffer() {
         return "";
     }
+
 
     @Override
     public Item buy(int index) {

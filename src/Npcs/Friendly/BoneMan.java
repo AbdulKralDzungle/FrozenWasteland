@@ -2,7 +2,15 @@ package Npcs.Friendly;
 
 import Items.Item;
 
-public class BoneMan extends FriendlyNPC{
+public class BoneMan extends FriendlyNPC {
+
+    private int[] costs = {0, 0};
+
+    @Override
+    public int getCost(int index) {
+        return costs[index];
+    }
+
     @Override
     public String talk() {
         return "";

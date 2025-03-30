@@ -1,8 +1,26 @@
 package Npcs.Friendly;
 
 import Items.Item;
+import Map.UnitLoader;
 
-public class TavernMaster extends FriendlyNPC{
+import java.util.ArrayList;
+
+public class TavernMaster extends FriendlyNPC {
+    private ArrayList<Item> items;
+    private ArrayList<Integer> costs;
+    private UnitLoader loader;
+
+    @Override
+    public int getCost(int index) {
+        return costs[index];
+    }
+
+    public TavernMaster() {
+        for (int d : itemIds) {
+            intems = loader.loadItems(d);
+        }
+    }
+
     @Override
     public String talk() {
         return "";

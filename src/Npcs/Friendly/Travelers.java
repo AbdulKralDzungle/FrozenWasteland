@@ -2,7 +2,14 @@ package Npcs.Friendly;
 
 import Items.Item;
 
-public class Travelers extends FriendlyNPC{
+public class Travelers extends FriendlyNPC {
+    private int[] costs = {0, 0};
+
+    @Override
+    public int getCost(int index) {
+        return costs[index];
+    }
+
     @Override
     public String talk() {
         return "";
