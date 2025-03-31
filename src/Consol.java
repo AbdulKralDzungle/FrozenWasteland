@@ -1,11 +1,9 @@
 import Command.*;
 
 import Map.WorldMap;
-import Npcs.Enemes.Eneme;
 import Npcs.Friendly.FriendlyNPC;
 import Npcs.Npc;
 import Player.Player;
-
 
 import java.io.BufferedReader;
 import java.io.FileReader;
