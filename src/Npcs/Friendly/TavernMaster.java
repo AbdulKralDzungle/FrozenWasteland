@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class TavernMaster extends FriendlyNPC {
     private ArrayList<Item> items;
     private ArrayList<Integer> costs;
+    private ArrayList<Integer> prices;
     private UnitLoader loader;
 
     @Override
@@ -54,7 +55,7 @@ public class TavernMaster extends FriendlyNPC {
 
     @Override
     public Item buy(int index) {
-        return null;
+        return items.get(index);
     }
 
     @Override

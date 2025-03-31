@@ -18,9 +18,10 @@ public class Buy extends Command {
         this.interactible = interactible;
         index = Integer.parseInt(subject);
         if (interactible instanceof FriendlyNPC) {
-            if (((FriendlyNPC) interactible).getCost(index) > player.getMoney()) {
-                success = true;
-                player.putItem(((FriendlyNPC) interactible).buy(index));
+            if (((FriendlyNPC) interactible).getCost(index) < player.getMoney()) {
+                if (player.spendMoney(player.getMoney())) {
+                    success = true;
+                }
             }
         }
         return "koupeno";
@@ -43,15 +44,12 @@ public class Buy extends Command {
 
     @Override
     public int gainMoney() {
-        if (success) {
-            return ((FriendlyNPC) interactible).getCost(-index);
-        }
         return 0;
     }
 
     @Override
     public Npc startInteraction() {
-        return null;
+        return interactible;
     }
 
     @Override
@@ -71,6 +69,11 @@ public class Buy extends Command {
 
     @Override
     public Item gainItem() {
+        if (success) {
+            System.out.println(((FriendlyNPC) interactible).buy(index));
+            return ((FriendlyNPC) interactible).buy(index);
+
+        }
         return null;
     }
 
