@@ -9,10 +9,10 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PlayerTest {
-    Player player1;
-    Player player2;
-    Player player3;
-    Player player4;
+    private Player player1;
+    private Player player2;
+    private Player player3;
+    private Player player4;
 
     @BeforeEach
     void setUp() {
