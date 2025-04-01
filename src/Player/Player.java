@@ -18,7 +18,7 @@ public class Player {
     private Bag bag;
 
     public boolean removeItem(int index) {
-        return true;
+        return bag.removeItem(index);
     }
 
     public String getItemList() {
@@ -83,7 +83,7 @@ public class Player {
     }
 
     public Item getItem(int index) {
-        if (bag.getItems().size() > index) {
+        if (bag.getItems().size() > index && index >= 0) {
             return bag.getItems().get(index);
         }
         return null;

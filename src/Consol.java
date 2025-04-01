@@ -93,6 +93,9 @@ public class Consol {
                         player.putItem(cmd.gainItem());
                         player.applyEffect(cmd.apply());
                         player.gainMoney(cmd.gainMoney());
+                        if (cmd.removesItem()) {
+                            player.removeItem(Integer.parseInt(command[1]));
+                        }
                     } else {
                         player.applyEffect(cmd.apply());
                     }
@@ -125,9 +128,14 @@ public class Consol {
                 Command cmd = commands.get(command[0]);
                 if (player.removeEnergy(cmd.energyCost())) {
                     String text = cmd.execute(wm, command[1], interactibleEntiti, player);
+                    //-------------------------------------------------
                     player.applyEffect(wm.getCurrentLoc().apply());
                     player.applyEffect(cmd.apply());
                     player.putItem(cmd.gainItem());
+                    if (cmd.removesItem()) {
+                        player.removeItem(Integer.parseInt(command[1]));
+                    }
+                    //-------------------------------------------------
                     System.out.println(text);
                     interactibleEntiti = cmd.startInteraction();
                     exit = commands.get(command[0]).exit();

@@ -26,6 +26,10 @@ public class Bag {
     }
 
     public boolean removeItem(int index) {
-        return true;
+        if (index >= 0 && index < items.size()) {
+            items.remove(index);
+            return true;
+        }
+        return false;
     }
 }
