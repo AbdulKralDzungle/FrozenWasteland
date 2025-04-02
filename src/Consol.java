@@ -48,6 +48,7 @@ public class Consol {
         commands.put("interact", new Interact());
         commands.put("search", new Search());
         commands.put("use", new Use());
+        commands.put("sleep", new Sleep());
 
         interactions = new HashMap<>();
         interactions.put("exit", new Exit());

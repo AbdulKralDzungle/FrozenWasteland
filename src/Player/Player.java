@@ -25,6 +25,10 @@ public class Player {
         return "";
     }
 
+    public int getEnergy() {
+        return energy;
+    }
+
     public boolean putItem(Item item) {
         if (item != null) {
             return bag.putItem(item);
@@ -38,7 +42,7 @@ public class Player {
 
     public boolean removeEnergy(int energy) {
         if (energy < this.energy) {
-            this.energy -= energy;
+            this.energy -= (int) (energy * energyMultiplier);
             return true;
         }
         return false;
@@ -105,6 +109,9 @@ public class Player {
 
     public void addEnergyMultiplier(double amount) {
         energyMultiplier += amount;
+        if (energyMultiplier < 0.1) {
+            energyMultiplier = 0.1;
+        }
     }
 
     public void takeDmg(int dmg) {
@@ -132,8 +139,13 @@ public class Player {
         return s;
     }
 
+    public void clearEffects() {
+        effects.clear();
+    }
+
     public void ubdate(Npc interactible) {
         bonusDmg = 0;
+        energyMultiplier = 1;
         ArrayList<Efect> nextEffects = new ArrayList<>();
         for (Efect effect : effects) {
             effect.applyToPlayer(this);
