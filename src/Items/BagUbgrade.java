@@ -19,13 +19,33 @@ public class BagUbgrade extends Item{
     }
 
     @Override
+    public boolean isUpgrade() {
+        return true;
+    }
+
+    @Override
+    public int addDef() {
+        return 0;
+    }
+
+    @Override
+    public int addDmg() {
+        return 0;
+    }
+
+    @Override
+    public int addEnergyMult() {
+        return 0;
+    }
+
+    @Override
     public int deaDmg() {
         return 0;
     }
 
     @Override
     public int sellPrice() {
-        return 0;
+        return 30;
     }
 
     @Override

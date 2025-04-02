@@ -1,12 +1,18 @@
 package Npcs.Enemes;
 
 import Efects.Efect;
+import Items.Item;
 
 import java.util.ArrayList;
 
 public class Crawler extends Eneme {
     private int hp;
     private ArrayList<Efect> efects;
+
+    @Override
+    public Item dropItem() {
+        return null;
+    }
 
     @Override
     public String description() {

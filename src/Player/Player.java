@@ -1,6 +1,7 @@
 package Player;
 
 import Efects.Efect;
+import Items.BagUbgrade;
 import Items.Item;
 import Npcs.Enemes.Eneme;
 import Npcs.Npc;
@@ -16,6 +17,7 @@ public class Player {
     private double energyMultiplier;
     private ArrayList<Efect> effects;
     private Bag bag;
+    private Bag ubgrades;
 
     public boolean removeItem(int index) {
         return bag.removeItem(index);
@@ -25,11 +27,20 @@ public class Player {
         return "";
     }
 
-    public boolean putItem(Item item) {
+    public int getEnergy() {
+        return energy;
+    }
+
+    public void putItem(Item item) {
         if (item != null) {
-            return bag.putItem(item);
+            bag.putItem(item);
         }
-        return false;
+    }
+
+    public void putUpgrade(Item item) {
+        if (item != null) {
+            ubgrades.putItem(item);
+        }
     }
 
     public int getBonusDmg() {
@@ -38,7 +49,7 @@ public class Player {
 
     public boolean removeEnergy(int energy) {
         if (energy < this.energy) {
-            this.energy -= energy;
+            this.energy -= (int) (energy * energyMultiplier);
             return true;
         }
         return false;
@@ -79,6 +90,7 @@ public class Player {
         this.resistance = 0;
         this.energyMultiplier = 1;
         bag = new Bag();
+        ubgrades = new Bag();
         effects = new ArrayList<>();
     }
 
@@ -105,6 +117,9 @@ public class Player {
 
     public void addEnergyMultiplier(double amount) {
         energyMultiplier += amount;
+        if (energyMultiplier < 0.1) {
+            energyMultiplier = 0.1;
+        }
     }
 
     public void takeDmg(int dmg) {
@@ -132,14 +147,29 @@ public class Player {
         return s;
     }
 
+    public void clearEffects() {
+        effects.clear();
+    }
+
     public void ubdate(Npc interactible) {
         bonusDmg = 0;
+        resistance = 0;
+        energyMultiplier = 1;
+        bag.setMaxCapacity(20);
         ArrayList<Efect> nextEffects = new ArrayList<>();
         for (Efect effect : effects) {
             effect.applyToPlayer(this);
             if (!effect.remove()) {
                 nextEffects.add(effect);
             }
+        }
+        for (Item item : ubgrades.getItems()) {
+            if (item instanceof BagUbgrade) {
+                bag.setMaxCapacity(35);
+            }
+            resistance += item.addDef();
+            energy += item.addEnergyMult();
+            bonusDmg += item.addDmg();
         }
         effects.clear();
         effects.addAll(nextEffects);

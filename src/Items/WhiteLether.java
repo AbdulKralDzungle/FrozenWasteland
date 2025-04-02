@@ -4,7 +4,7 @@ import Efects.Efect;
 
 import java.util.ArrayList;
 
-public class WhiteLether extends Item{
+public class WhiteLether extends Item {
     @Override
     public int giveEnergy() {
         return 0;
@@ -18,6 +18,26 @@ public class WhiteLether extends Item{
     @Override
     public String description() {
         return "WhiteLether#Description";
+    }
+
+    @Override
+    public boolean isUpgrade() {
+        return false;
+    }
+
+    @Override
+    public int addDef() {
+        return 0;
+    }
+
+    @Override
+    public int addDmg() {
+        return 0;
+    }
+
+    @Override
+    public int addEnergyMult() {
+        return 0;
     }
 
     @Override

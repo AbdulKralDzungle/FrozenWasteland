@@ -2,6 +2,7 @@ package Npcs.Enemes;
 
 import Efects.Bleeding;
 import Efects.Efect;
+import Items.Item;
 
 import java.util.ArrayList;
 
@@ -10,6 +11,11 @@ public class TheOne extends Eneme {
 
     public TheOne() {
         this.hp = 100;
+    }
+
+    @Override
+    public Item dropItem() {
+        return null;
     }
 
     @Override

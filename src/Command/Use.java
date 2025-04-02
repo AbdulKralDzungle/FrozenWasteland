@@ -20,6 +20,9 @@ public class Use extends Command {
         isDead = false;
         player.removeEnergy(-item.giveEnergy());
         player.takeDmg(-item.giveHp());
+        if (item.isUpgrade()) {
+            player.putUpgrade(item);
+        }
         if (interactible instanceof Eneme) {
             isDead = ((Eneme) interactible).takeDmg(item.deaDmg());
         }
@@ -70,7 +73,7 @@ public class Use extends Command {
 
     @Override
     public boolean removesItem() {
-        return item.isConsumeble();
+        return item.isConsumeble() || item.isUpgrade();
     }
 
     @Override

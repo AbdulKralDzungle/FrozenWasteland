@@ -1,6 +1,7 @@
 package Npcs.Enemes;
 
 import Efects.Efect;
+import Items.Item;
 
 import java.util.ArrayList;
 
@@ -13,6 +14,11 @@ public class Centipede extends Eneme {
         efects.add(efect);
     }
 
+
+    @Override
+    public Item dropItem() {
+        return null;
+    }
 
     @Override
     public String description() {

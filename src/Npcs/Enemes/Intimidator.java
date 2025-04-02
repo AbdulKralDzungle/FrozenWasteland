@@ -1,6 +1,7 @@
 package Npcs.Enemes;
 
 import Efects.Efect;
+import Items.Item;
 
 import java.util.ArrayList;
 
@@ -11,6 +12,11 @@ public class Intimidator extends Eneme {
     public Intimidator() {
         this.hp = 100;
         efects = new ArrayList<>();
+    }
+
+    @Override
+    public Item dropItem() {
+        return null;
     }
 
     @Override

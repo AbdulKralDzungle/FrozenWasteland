@@ -11,6 +11,14 @@ public abstract class Item {
 
     public abstract String description();
 
+    public abstract boolean isUpgrade();
+
+    public abstract int addDef();
+
+    public abstract int addDmg();
+
+    public abstract int addEnergyMult();
+
     public abstract int deaDmg();
 
     public abstract int sellPrice();

@@ -13,16 +13,21 @@ public class Bag {
         maxCapacity = 20;
     }
 
+    public void setMaxCapacity(int maxCapacity) {
+        this.maxCapacity = maxCapacity;
+    }
+
     public ArrayList<Item> getItems() {
         return items;
     }
 
-    public boolean putItem(Item item) {
+    public void putItem(Item item) {
         if (maxCapacity > items.size()) {
             items.add(item);
-            return true;
+        } else {
+            removeItem(0);
+            items.add(item);
         }
-        return false;
     }
 
     public boolean removeItem(int index) {
