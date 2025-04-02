@@ -27,6 +27,11 @@ public class IntimidatorsThorns extends Item {
     }
 
     @Override
+    public int sellPrice() {
+        return 50;
+    }
+
+    @Override
     public Efect applyEfects() {
         return new Bleeding();
     }

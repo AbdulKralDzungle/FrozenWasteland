@@ -33,6 +33,11 @@ public class Food2 extends Item {
     }
 
     @Override
+    public int sellPrice() {
+        return 0;
+    }
+
+    @Override
     public Efect applyEfects() {
         return loader.loadApplyable(69);
     }

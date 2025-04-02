@@ -13,6 +13,8 @@ public abstract class Item {
 
     public abstract int deaDmg();
 
+    public abstract int sellPrice();
+
     public abstract Efect applyEfects();
 
     public abstract boolean isConsumeble();

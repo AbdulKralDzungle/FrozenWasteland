@@ -1,8 +1,9 @@
-package Player;
+package Tests;
 
 import Efects.Strenght;
 import Items.WhiteLether;
 import Npcs.Enemes.Crawler;
+import Player.Player;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

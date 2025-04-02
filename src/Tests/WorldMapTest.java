@@ -1,5 +1,6 @@
-package Map;
+package Tests;
 
+import Map.WorldMap;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

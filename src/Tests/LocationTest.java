@@ -1,6 +1,8 @@
-package Map;
+package Tests;
 
 import Efects.Strenght;
+import Map.Location;
+import Map.WorldMap;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

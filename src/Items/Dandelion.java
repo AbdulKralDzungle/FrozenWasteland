@@ -26,6 +26,11 @@ public class Dandelion extends Item{
     }
 
     @Override
+    public int sellPrice() {
+        return 0;
+    }
+
+    @Override
     public Efect applyEfects() {
         return null;
     }

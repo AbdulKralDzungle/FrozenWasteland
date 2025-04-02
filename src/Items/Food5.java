@@ -26,6 +26,11 @@ public class Food5 extends Item{
     }
 
     @Override
+    public int sellPrice() {
+        return 0;
+    }
+
+    @Override
     public Efect applyEfects() {
         return null;
     }
