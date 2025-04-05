@@ -1,4 +1,4 @@
-package Tests;
+package Test;
 
 import Efects.Strenght;
 import Map.Location;

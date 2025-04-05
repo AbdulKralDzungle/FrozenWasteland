@@ -31,7 +31,7 @@ public class WorldMap {
     }
 
     public Boolean loadLocations() {
-        try (BufferedReader br = new BufferedReader(new FileReader("src/DataFiles/MapFiles/MapFile"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("Resources/MapFile"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] lines = line.split(";");

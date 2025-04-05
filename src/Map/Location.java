@@ -77,7 +77,7 @@ public class Location {
     // file order is NPCS, effect, items
     private String loadLocationString() {
         try {
-            BufferedReader bf = new BufferedReader(new FileReader("src/DataFiles/MapFiles/MapProperties"));
+            BufferedReader bf = new BufferedReader(new FileReader("Resources/MapProperties"));
             String s;
             do {
                 s = bf.readLine();

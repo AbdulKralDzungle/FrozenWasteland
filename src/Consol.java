@@ -224,7 +224,7 @@ public class Consol {
     // temporary way to display game status
     private String soutInfo() {
         String s = "";
-        try (BufferedReader br = new BufferedReader(new FileReader("src/DataFiles/MapFiles/MapText"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("Resources/MapText"))) {
             for (int i = 0; i < wm.getCurrentId() - 1; i++) {
                 br.readLine();
             }

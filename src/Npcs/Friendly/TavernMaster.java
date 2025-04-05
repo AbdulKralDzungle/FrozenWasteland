@@ -29,7 +29,7 @@ public class TavernMaster extends FriendlyNPC {
     private void loadOffers() {
         String s = "";
         try {
-            BufferedReader br = new BufferedReader(new FileReader("src/DataFiles/NPCfiles/NpcOffers"));
+            BufferedReader br = new BufferedReader(new FileReader("Resources/NpcOffers"));
             for (int i = 0; i < 2; i++) {
                 s = br.readLine();
             }

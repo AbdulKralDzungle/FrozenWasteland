@@ -1,22 +1,16 @@
-package Tests;
+package Test;
 
-import Command.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class GoToTest {
+class AttackTest {
 
     @BeforeEach
     void setUp() {
-        Command cmd = new GoTo();
     }
 
     @Test
     void execute() {
-    }
-
-    @Test
-    void exit() {
     }
 
     @Test
@@ -25,6 +19,10 @@ class GoToTest {
 
     @Test
     void endsTurn() {
+    }
+
+    @Test
+    void startInteraction() {
     }
 
     @Test
