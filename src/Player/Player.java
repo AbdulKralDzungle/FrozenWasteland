@@ -152,10 +152,10 @@ public class Player {
     }
 
     public void ubdate(Npc interactible) {
+        bag.setMaxCapacity(20);
         bonusDmg = 0;
         resistance = 0;
         energyMultiplier = 1;
-        bag.setMaxCapacity(20);
         ArrayList<Efect> nextEffects = new ArrayList<>();
         for (Efect effect : effects) {
             effect.applyToPlayer(this);

@@ -1,5 +1,4 @@
 import Command.*;
-
 import Map.WorldMap;
 import Npcs.Friendly.FriendlyNPC;
 import Npcs.Npc;
@@ -202,6 +201,7 @@ public class Consol {
 
     /**
      * this method is only for composing string that is used as en output
+     *
      * @return info that is displayed at the end of a players turn
      */
     private String soutEndTurnInfo() {
@@ -211,8 +211,10 @@ public class Consol {
                 + "\n" + " Efects: " +
                 player.soutEfects() + " ";
     }
+
     /**
      * this method is only for composing string that is used as en output
+     *
      * @return info that is displayed at the end of a players interaction
      */
     private String soutSoftInfo() {
