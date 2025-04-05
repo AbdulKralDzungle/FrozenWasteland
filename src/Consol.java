@@ -24,15 +24,25 @@ public class Consol {
         initialize();
     }
 
+    /**
+     * makes a String of locations that are available for player to go
+     *
+     * @return String in a "id locationName" format
+     */
     private String getLocations() {
-        String s = "";
+        StringBuilder s = new StringBuilder();
         String[] names = wm.getLocNames();
         for (int i = 0; i < names.length; i++) {
-            s = s + "\n" + i + " " + names[i];
+            s.append("\n").append(i).append(" ").append(names[i]);
         }
-        return s;
+        return s.toString();
     }
 
+    /**
+     * initialization of the console
+     * here are two command design patterns set up
+     * additionally here are initialized all needed objects and variables
+     */
     private void initialize() {
         exit = false;
         this.wm = new WorldMap();
@@ -62,6 +72,12 @@ public class Consol {
         loop();
     }
 
+    /**
+     * loop responsible for the in game turns
+     * loops until the selected command returns true from its exit method
+     * executes e "interaction" if the interactibleEntiti variable is not null
+     * otherwise executes a "turn"
+     */
     private void loop() {
         do {
             System.out.println(soutInfo());
@@ -79,43 +95,34 @@ public class Consol {
         sc.close();
     }
 
+    /**
+     * this method is called when player is currently interacting with en entity
+     * it handles execution of one of the commands contained in the "interaction" hash map
+     *
+     * @param command is a String[] that contains player input that was split by spaces
+     * @return text that will be printed for player as a report of what happened in game
+     */
     private String executeInteraction(String[] command) {
         if (command.length == 2) {
             if (interactions.containsKey(command[0]) && command[1].matches("^[0-9]*$")) {
                 Command cmd = interactions.get(command[0]);
                 System.out.println("uvnitr interakce");
                 if (player.removeEnergy(cmd.energyCost())) {
-                    //---------------------------------------//
-                    // jeste rozdelim do metod and staff
                     String text = cmd.execute(wm, command[1], interactibleEntiti, player);
-
                     //---------------------------------------//
-                    if (interactibleEntiti instanceof FriendlyNPC) {
-                        player.putItem(cmd.gainItem());
-                        player.applyEffect(cmd.apply());
-                        player.gainMoney(cmd.gainMoney());
-                        if (cmd.removesItem()) {
-                            player.removeItem(Integer.parseInt(command[1]));
-                        }
-                    } else {
-                        player.applyEffect(cmd.apply());
-                    }
+                    playerInteract(cmd, command);
                     //---------------------------------------//
-                    if (cmd.removesItem()) {
-                        player.removeItem(Integer.parseInt(command[1]));
-                    }
                     System.out.println(text);
                     interactibleEntiti = cmd.startInteraction();
                     exit = interactions.get(command[0]).exit();
                     wm.ubdate();
                     if (cmd.endsTurn()) {
-                        endTurn();
                         return soutEndTurnInfo();
                     } else {
                         return soutSoftInfo();
                     }
                 }
-                return "nedostatek energie";
+                return "you will is strong, but your tiredness is stronger, unfortunately you are not able to preform that task";
             } else {
                 return "invalid command";
             }
@@ -123,6 +130,10 @@ public class Consol {
         return "invalid command";
     }
 
+    /**
+     * @param command is a String[] that contains player input that was split by spaces
+     * @return text that will be printed for player as a report of what happened in game
+     */
     private String executeTurn(String[] command) {
         if (command.length == 2) {
             if (commands.containsKey(command[0]) && command[1].matches("^[0-9]*$")) {
@@ -130,19 +141,13 @@ public class Consol {
                 if (player.removeEnergy(cmd.energyCost())) {
                     String text = cmd.execute(wm, command[1], interactibleEntiti, player);
                     //-------------------------------------------------
-                    player.applyEffect(wm.getCurrentLoc().apply());
-                    player.applyEffect(cmd.apply());
-                    player.putItem(cmd.gainItem());
-                    if (cmd.removesItem()) {
-                        player.removeItem(Integer.parseInt(command[1]));
-                    }
+                    playerTurn(cmd, command);
                     //-------------------------------------------------
                     System.out.println(text);
                     interactibleEntiti = cmd.startInteraction();
                     exit = commands.get(command[0]).exit();
                     wm.ubdate();
                     if (cmd.endsTurn()) {
-                        endTurn();
                         return soutEndTurnInfo();
                     } else {
                         return soutSoftInfo();
@@ -156,6 +161,49 @@ public class Consol {
         return "invalid or currently unusable command";
     }
 
+    /**
+     * used as a part of "executeInteraction" method
+     * handles all direct communication with the player object
+     *
+     * @param cmd     command object obtained using command design pattern
+     * @param command is a String[] that contains player input that was split by spaces
+     */
+    private void playerInteract(Command cmd, String[] command) {
+        if (interactibleEntiti instanceof FriendlyNPC) {
+            player.putItem(cmd.gainItem());
+            player.applyEffect(cmd.apply());
+            player.gainMoney(cmd.gainMoney());
+            if (cmd.removesItem()) {
+                player.removeItem(Integer.parseInt(command[1]));
+            }
+        } else {
+            player.applyEffect(cmd.apply());
+        }
+        if (cmd.removesItem()) {
+            player.removeItem(Integer.parseInt(command[1]));
+        }
+    }
+
+    /**
+     * used as a part of "executeTurn" method
+     * handles all direct communication with the player object
+     *
+     * @param cmd     command object obtained using command design pattern
+     * @param command is a String[] that contains player input that was split by spaces
+     */
+    private void playerTurn(Command cmd, String[] command) {
+        player.applyEffect(wm.getCurrentLoc().apply());
+        player.applyEffect(cmd.apply());
+        player.putItem(cmd.gainItem());
+        if (cmd.removesItem()) {
+            player.removeItem(Integer.parseInt(command[1]));
+        }
+    }
+
+    /**
+     * this method is only for composing string that is used as en output
+     * @return info that is displayed at the end of a players turn
+     */
     private String soutEndTurnInfo() {
         return "turn ended" + " entities: " + this.wm.getCurrentLoc().soutNpcs()
                 + "\n" + " items: " +
@@ -163,7 +211,10 @@ public class Consol {
                 + "\n" + " Efects: " +
                 player.soutEfects() + " ";
     }
-
+    /**
+     * this method is only for composing string that is used as en output
+     * @return info that is displayed at the end of a players interaction
+     */
     private String soutSoftInfo() {
         return "you did smth";
     }
@@ -188,7 +239,4 @@ public class Consol {
 
     }
 
-    private void endTurn() {
-
-    }
 }
