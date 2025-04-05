@@ -19,6 +19,9 @@ public class Attack extends Command {
         if (interactible instanceof Eneme) {
             isDead = ((Eneme) interactible).takeDmg(20 + player.getBonusDmg());
         }
+        if (isDead) {
+            player.putItem(((Eneme) interactible).dropItem());
+        }
         return "bum";
     }
 

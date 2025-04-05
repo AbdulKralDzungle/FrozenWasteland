@@ -2,6 +2,7 @@ package Npcs.Enemes;
 
 import Efects.Efect;
 import Items.Item;
+import Items.Lether;
 
 import java.util.ArrayList;
 
@@ -11,7 +12,7 @@ public class Crawler extends Eneme {
 
     @Override
     public Item dropItem() {
-        return null;
+        return new Lether();
     }
 
     @Override
