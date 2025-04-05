@@ -21,10 +21,10 @@ class PlayerTest {
         player2 = new Player();
         player3 = new Player();
         player4 = new Player();
-        player1.inicialize();
-        player2.inicialize();
-        player3.inicialize();
-        player4.inicialize();
+        player1.initialize();
+        player2.initialize();
+        player3.initialize();
+        player4.initialize();
     }
 
     @Test
@@ -41,7 +41,7 @@ class PlayerTest {
     @Test
     void getBonusDmg() {
         player1.applyEffect(new Strenght());
-        player1.ubdate(new Crawler());
+        player1.update(new Crawler());
         assertEquals(10, player1.getBonusDmg());
     }
 

@@ -46,7 +46,7 @@ public class Consol {
         exit = false;
         this.wm = new WorldMap();
         this.player = new Player();
-        this.player.inicialize();
+        this.player.initialize();
         this.sc = new Scanner(System.in);
 
         commands = new HashMap<>();
@@ -89,7 +89,7 @@ public class Consol {
                 System.out.println(executeTurn(split));
                 System.out.println("-------------------------------------------------//-------------------------------------------------");
             }
-            player.ubdate(interactibleEntiti);
+            player.update(interactibleEntiti);
         } while (!exit && !player.isDead());
         sc.close();
     }
