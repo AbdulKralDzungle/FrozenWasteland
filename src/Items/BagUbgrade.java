@@ -2,7 +2,12 @@ package Items;
 
 import Efects.Efect;
 
-public class BagUbgrade extends Item{
+/**
+ * This class is a child of Item class
+ * The difference between this and Item class are minor in case of code structure
+ * Therefore all necessary documentation is contained in the Item class
+ */
+public class BagUbgrade extends Item {
     @Override
     public int giveEnergy() {
         return 0;
