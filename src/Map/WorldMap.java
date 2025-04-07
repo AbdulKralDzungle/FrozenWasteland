@@ -51,6 +51,12 @@ public class WorldMap {
         }
     }
 
+    /**
+     * Used to extract info about locations that is parsable to move to from String
+     *
+     * @param goToLocations String loaded from file by loadLocations method
+     * @return array of ids
+     */
     private int[] unpackGoToLocations(String goToLocations) {
         String[] locations = goToLocations.split("#");
         int[] unpackedLocations = new int[locations.length];
@@ -60,6 +66,13 @@ public class WorldMap {
         return unpackedLocations;
     }
 
+    /**
+     * called when player requests to move to different location
+     * if the requested location is valid, new location is loaded into currentLoc variable
+     *
+     * @param location id of location that was requested to move to
+     * @return weather or not the go request was valid
+     */
     public boolean goTo(int location) {
         if (world.containsKey(location)) {
             if (containsLocation(currentLoc, location)) {
@@ -71,6 +84,13 @@ public class WorldMap {
     }
 
 
+    /**
+     * simple loop that checks if id of location is part of locations that player have the possibility to go to
+     *
+     * @param loc   Location object that contains the necessary information
+     * @param index is id of locations player requested as his destination
+     * @return true if the requested location is reachable
+     */
     private boolean containsLocation(Location loc, int index) {
         for (int i : loc.getGoToLocations()) {
             if (index == i) {
@@ -84,6 +104,9 @@ public class WorldMap {
         return this.currentLoc.getGoToLocations();
     }
 
+    /**
+     * @return array of Strings that contains names of locations
+     */
     public String[] getLocNames() {
         int[] locs = getLocations();
         String[] s = new String[locs.length];
@@ -93,6 +116,9 @@ public class WorldMap {
         return s;
     }
 
+    /**
+     * loops through all locations that are contained in the world hash map
+     */
     public void update() {
         world.forEach((key, location) -> {
             location.update();
