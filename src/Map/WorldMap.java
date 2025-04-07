@@ -30,7 +30,12 @@ public class WorldMap {
         currentLoc = world.get(1);
     }
 
-    public Boolean loadLocations() {
+    /**
+     * loops through all lines of corresponding file
+     * creates locations based on info located on corresponding line in the file
+     * Makes
+     */
+    public void loadLocations() {
         try (BufferedReader br = new BufferedReader(new FileReader("Resources/MapFile"))) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -42,9 +47,7 @@ public class WorldMap {
                 );
                 world.put(Integer.valueOf(lines[0]), location);
             }
-            return true;
         } catch (IOException E) {
-            return false;
         }
     }
 
@@ -90,9 +93,9 @@ public class WorldMap {
         return s;
     }
 
-    public void ubdate() {
+    public void update() {
         world.forEach((key, location) -> {
-            location.ubdate();
+            location.update();
         });
     }
 }

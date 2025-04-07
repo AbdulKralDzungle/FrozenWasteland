@@ -114,7 +114,7 @@ public class Consol {
                     System.out.println(text);
                     interactibleEntiti = cmd.startInteraction();
                     exit = interactions.get(command[0]).exit();
-                    wm.ubdate();
+                    wm.update();
                     if (cmd.endsTurn()) {
                         return soutEndTurnInfo();
                     } else {
@@ -145,7 +145,7 @@ public class Consol {
                     System.out.println(text);
                     interactibleEntiti = cmd.startInteraction();
                     exit = commands.get(command[0]).exit();
-                    wm.ubdate();
+                    wm.update();
                     if (cmd.endsTurn()) {
                         return soutEndTurnInfo();
                     } else {

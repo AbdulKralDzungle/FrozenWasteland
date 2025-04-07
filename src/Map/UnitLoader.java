@@ -9,6 +9,12 @@ import Npcs.Npc;
 import java.util.ArrayList;
 
 public class UnitLoader {
+    /**
+     * Loads an effect
+     *
+     * @param id number used to create corresponding class
+     * @return newly created object that is used afterwords by enemy and player classes
+     */
     public Efect loadApplyable(int id) {
         return (switch (id) {
             case 0 -> null;
@@ -24,6 +30,14 @@ public class UnitLoader {
         });
     }
 
+    /**
+     * called from Location
+     * constructs an array list from string of ids
+     *
+     * @param ids is String obtained from file by Location
+     *            individual ids are separated with #
+     * @return array list of Npc objects that will be placed into location that called this function
+     */
     public ArrayList<Npc> loadNpcs(String ids) {
         String[] idPole = ids.split("#");
         ArrayList<Npc> npcs = new ArrayList<>();
@@ -47,6 +61,13 @@ public class UnitLoader {
         return npcs;
     }
 
+    /**
+     * used to generate array list of items form String of ids
+     *
+     * @param ids String containing ids of items that are supposed to be created
+     *            individual ids are separated with #
+     * @return Array List of loaded items
+     */
     public ArrayList<Item> loadItems(String ids) {
         String[] idPole = ids.split("#");
         ArrayList<Item> items = new ArrayList<>();

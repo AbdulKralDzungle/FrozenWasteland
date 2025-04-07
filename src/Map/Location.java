@@ -1,11 +1,9 @@
 package Map;
 
-import Efects.*;
-import Items.*;
-import Npcs.Friendly.*;
-import Npcs.*;
-import Npcs.Enemes.*;
-
+import Efects.Efect;
+import Items.Item;
+import Npcs.Enemes.Eneme;
+import Npcs.Npc;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -45,6 +43,11 @@ public class Location {
         return findables;
     }
 
+    /**
+     * initialize the location
+     * uses properties loaded from file, that are acquired through the loadLocationString method
+     * also is called upon player using sleep command to respawn monsters and staff
+     */
     private void initialize() {
         String s = loadLocationString();
         String[] properties = s.split(";");
@@ -60,6 +63,11 @@ public class Location {
     }
 
 
+    /**
+     * used to make text that is displayed to the player as en output
+     *
+     * @return info about Npcs that are currently in the location
+     */
     public String soutNpcs() {
         String s = "";
         for (Npc npc : npcs) {
@@ -73,7 +81,11 @@ public class Location {
         return npcs;
     }
 
-    // reads from file
+    /**
+     * Reads data from folder
+     *
+     * @return data in order: NPCS, effect, items that correspond to the location id
+     */
     // file order is NPCS, effect, items
     private String loadLocationString() {
         try {
@@ -88,7 +100,12 @@ public class Location {
         }
     }
 
-    public void ubdate() {
+
+    /**
+     * this method is called upon player ending turn
+     * removes dead Npcs from Array list of Npcs
+     */
+    public void update() {
         ArrayList<Npc> nextNpcs = new ArrayList<>();
         for (Npc npc : npcs) {
             if (npc instanceof Eneme) {
