@@ -2,8 +2,6 @@ package Items;
 
 import Efects.Efect;
 
-import java.util.ArrayList;
-
 public abstract class Item {
     public abstract int giveEnergy();
 
@@ -17,13 +15,13 @@ public abstract class Item {
 
     public abstract int addDmg();
 
-    public abstract int addEnergyMult();
+    public abstract int addEnergyMulti();
 
     public abstract int deaDmg();
 
     public abstract int sellPrice();
 
-    public abstract Efect applyEfects();
+    public abstract Efect applyEffects();
 
-    public abstract boolean isConsumeble();
+    public abstract boolean isConsumable();
 }

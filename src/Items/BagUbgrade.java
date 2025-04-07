@@ -34,7 +34,7 @@ public class BagUbgrade extends Item{
     }
 
     @Override
-    public int addEnergyMult() {
+    public int addEnergyMulti() {
         return 0;
     }
 
@@ -49,12 +49,12 @@ public class BagUbgrade extends Item{
     }
 
     @Override
-    public Efect applyEfects() {
+    public Efect applyEffects() {
         return null;
     }
 
     @Override
-    public boolean isConsumeble() {
+    public boolean isConsumable() {
         return false;
     }
 }

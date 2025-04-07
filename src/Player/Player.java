@@ -193,7 +193,7 @@ public class Player {
                 bag.setMaxCapacity(35);
             }
             resistance += item.addDef();
-            energy += item.addEnergyMult();
+            energy += item.addEnergyMulti();
             bonusDmg += item.addDmg();
         }
         effects.clear();

@@ -37,7 +37,7 @@ public class IntimidatorsThorns extends Item {
     }
 
     @Override
-    public int addEnergyMult() {
+    public int addEnergyMulti() {
         return 0;
     }
 
@@ -52,12 +52,12 @@ public class IntimidatorsThorns extends Item {
     }
 
     @Override
-    public Efect applyEfects() {
+    public Efect applyEffects() {
         return new Bleeding();
     }
 
     @Override
-    public boolean isConsumeble() {
+    public boolean isConsumable() {
         return true;
     }
 }

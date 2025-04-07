@@ -2,7 +2,6 @@ package Command;
 
 import Efects.Efect;
 import Items.Item;
-import Map.UnitLoader;
 import Map.WorldMap;
 import Npcs.Enemes.Eneme;
 import Npcs.Npc;
@@ -37,10 +36,10 @@ public class Use extends Command {
     @Override
     public Efect apply() {
         if (item.deaDmg() > 0 && interactible instanceof Eneme) {
-            ((Eneme) interactible).takeEffect(item.applyEfects());
+            ((Eneme) interactible).takeEffect(item.applyEffects());
             return null;
         }
-        return item.applyEfects();
+        return item.applyEffects();
     }
 
     @Override
@@ -73,7 +72,7 @@ public class Use extends Command {
 
     @Override
     public boolean removesItem() {
-        return item.isConsumeble() || item.isUpgrade();
+        return item.isConsumable() || item.isUpgrade();
     }
 
     @Override

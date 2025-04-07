@@ -43,7 +43,7 @@ public class Food2 extends Item {
     }
 
     @Override
-    public int addEnergyMult() {
+    public int addEnergyMulti() {
         return 0;
     }
 
@@ -58,12 +58,12 @@ public class Food2 extends Item {
     }
 
     @Override
-    public Efect applyEfects() {
+    public Efect applyEffects() {
         return loader.loadApplyable(69);
     }
 
     @Override
-    public boolean isConsumeble() {
+    public boolean isConsumable() {
         return false;
     }
 }
