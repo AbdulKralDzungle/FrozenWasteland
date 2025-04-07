@@ -3,7 +3,7 @@ package Command;
 import Efects.Efect;
 import Items.Item;
 import Map.WorldMap;
-import Npcs.Enemes.Eneme;
+import Npcs.Enemes.Enemy;
 import Npcs.Npc;
 import Player.Player;
 
@@ -22,8 +22,8 @@ public class Use extends Command {
         if (item.isUpgrade()) {
             player.putUpgrade(item);
         }
-        if (interactible instanceof Eneme) {
-            isDead = ((Eneme) interactible).takeDmg(item.deaDmg());
+        if (interactible instanceof Enemy) {
+            isDead = ((Enemy) interactible).takeDmg(item.deaDmg());
         }
         return "pouzito";
     }
@@ -35,8 +35,8 @@ public class Use extends Command {
 
     @Override
     public Efect apply() {
-        if (item.deaDmg() > 0 && interactible instanceof Eneme) {
-            ((Eneme) interactible).takeEffect(item.applyEffects());
+        if (item.deaDmg() > 0 && interactible instanceof Enemy) {
+            ((Enemy) interactible).takeEffect(item.applyEffects());
             return null;
         }
         return item.applyEffects();

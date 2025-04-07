@@ -2,7 +2,7 @@ package Map;
 
 import Efects.Efect;
 import Items.Item;
-import Npcs.Enemes.Eneme;
+import Npcs.Enemes.Enemy;
 import Npcs.Npc;
 
 import java.io.BufferedReader;
@@ -108,9 +108,9 @@ public class Location {
     public void update() {
         ArrayList<Npc> nextNpcs = new ArrayList<>();
         for (Npc npc : npcs) {
-            if (npc instanceof Eneme) {
-                ((Eneme) npc).ubdate();
-                if (!((Eneme) npc).takeDmg(0)) {
+            if (npc instanceof Enemy) {
+                ((Enemy) npc).update();
+                if (!((Enemy) npc).takeDmg(0)) {
                     nextNpcs.add(npc);
                 }
             } else {

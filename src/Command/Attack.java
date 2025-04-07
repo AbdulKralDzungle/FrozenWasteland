@@ -3,7 +3,7 @@ package Command;
 import Efects.Efect;
 import Items.Item;
 import Map.WorldMap;
-import Npcs.Enemes.Eneme;
+import Npcs.Enemes.Enemy;
 import Npcs.Enemes.TheOne;
 import Npcs.Npc;
 import Player.Player;
@@ -16,11 +16,11 @@ public class Attack extends Command {
     public String execute(WorldMap wm, String subject, Npc interactible, Player player) {
         isDead = false;
         this.interactible = interactible;
-        if (interactible instanceof Eneme) {
-            isDead = ((Eneme) interactible).takeDmg(20 + player.getBonusDmg());
+        if (interactible instanceof Enemy) {
+            isDead = ((Enemy) interactible).takeDmg(20 + player.getBonusDmg());
         }
         if (isDead) {
-            player.putItem(((Eneme) interactible).dropItem());
+            player.putItem(((Enemy) interactible).dropItem());
         }
         return "bum";
     }

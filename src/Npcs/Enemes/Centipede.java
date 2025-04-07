@@ -5,7 +5,7 @@ import Items.Item;
 
 import java.util.ArrayList;
 
-public class Centipede extends Eneme {
+public class Centipede extends Enemy {
     private int hp;
     private ArrayList<Efect> efects;
 
@@ -43,14 +43,14 @@ public class Centipede extends Eneme {
     }
 
     @Override
-    public void ubdate() {
+    public void update() {
         for (Efect efect : efects) {
             efect.applyToMonster(this);
         }
     }
 
     @Override
-    public ArrayList<Efect> applyEfects() {
+    public ArrayList<Efect> applyEffects() {
         return null;
     }
 }

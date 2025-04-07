@@ -3,7 +3,7 @@ package Player;
 import Efects.Efect;
 import Items.BagUbgrade;
 import Items.Item;
-import Npcs.Enemes.Eneme;
+import Npcs.Enemes.Enemy;
 import Npcs.Npc;
 
 import java.util.ArrayList;
@@ -198,9 +198,9 @@ public class Player {
         }
         effects.clear();
         effects.addAll(nextEffects);
-        if (interactible instanceof Eneme) {                  // enemies attacks handling
-            hp -= ((Eneme) interactible).dealDmg();
-            ArrayList<Efect> efects = ((Eneme) interactible).applyEfects();
+        if (interactible instanceof Enemy) {                  // enemies attacks handling
+            hp -= ((Enemy) interactible).dealDmg();
+            ArrayList<Efect> efects = ((Enemy) interactible).applyEffects();
             if (efects != null) {
                 for (Efect efect : efects) {
                     if (efects != null) {

@@ -1,8 +1,12 @@
 package Npcs;
 
-import Items.*;
-
+/**
+ * This is a parent class for Enemy and for FriendlyNPC
+ */
 public abstract class Npc {
-    // returns String in form of Name#Description
+    /**
+     * @return a String that is used as en output for the player
+     * The returned string follows form of: Name#Description
+     */
     public abstract String description();
 }

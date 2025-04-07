@@ -1,6 +1,6 @@
 package Efects;
 
-import Npcs.Enemes.Eneme;
+import Npcs.Enemes.Enemy;
 import Player.Player;
 
 public class Exhoustion extends Efect {
@@ -19,7 +19,7 @@ public class Exhoustion extends Efect {
     }
 
     @Override
-    public void applyToMonster(Eneme eneme) {
+    public void applyToMonster(Enemy eneme) {
         eneme.takeDmg(10);
     }
 

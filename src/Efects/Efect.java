@@ -1,6 +1,6 @@
 package Efects;
 
-import Npcs.Enemes.Eneme;
+import Npcs.Enemes.Enemy;
 import Player.Player;
 
 /**
@@ -9,7 +9,7 @@ import Player.Player;
 public abstract class Efect {
     public abstract boolean applyToPlayer(Player player);
 
-    public abstract void applyToMonster(Eneme eneme);
+    public abstract void applyToMonster(Enemy eneme);
 
     public abstract boolean remove();
 

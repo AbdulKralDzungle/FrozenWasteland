@@ -6,7 +6,7 @@ import Items.Lether;
 
 import java.util.ArrayList;
 
-public class Crawler extends Eneme {
+public class Crawler extends Enemy {
     private int hp;
     private ArrayList<Efect> efects;
 
@@ -38,7 +38,7 @@ public class Crawler extends Eneme {
     }
 
     @Override
-    public void ubdate() {
+    public void update() {
         for (Efect efect : efects) {
             efect.applyToMonster(this);
         }
@@ -50,7 +50,7 @@ public class Crawler extends Eneme {
     }
 
     @Override
-    public ArrayList<Efect> applyEfects() {
+    public ArrayList<Efect> applyEffects() {
         return null;
     }
 }

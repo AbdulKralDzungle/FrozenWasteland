@@ -6,7 +6,7 @@ import Items.Item;
 
 import java.util.ArrayList;
 
-public class TheOne extends Eneme {
+public class TheOne extends Enemy {
     private int hp;
 
     public TheOne() {
@@ -35,7 +35,7 @@ public class TheOne extends Eneme {
     }
 
     @Override
-    public void ubdate() {
+    public void update() {
 
     }
 
@@ -45,7 +45,7 @@ public class TheOne extends Eneme {
     }
 
     @Override
-    public ArrayList<Efect> applyEfects() {
+    public ArrayList<Efect> applyEffects() {
         ArrayList<Efect> efects = new ArrayList<>();
         efects.add(new Bleeding());
         return efects;
