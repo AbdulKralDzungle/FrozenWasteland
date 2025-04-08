@@ -16,6 +16,11 @@ public abstract class FriendlyNPC extends Npc {
     public abstract String talk();
 
     /**
+     * @return String with list of items and their costs
+     */
+    public abstract String getOffer();
+
+    /**
      * get cost of item that is requested from the buy command by player
      *
      * @param index of item that is supposed to be bought

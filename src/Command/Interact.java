@@ -32,7 +32,8 @@ public class Interact extends Command {
             npc = npcs.get(id);
             String s = npc.description().split("#")[0];
             if (npc instanceof FriendlyNPC) {
-                s += ": " + ((FriendlyNPC) npc).talk();
+                s += ": " + ((FriendlyNPC) npc).talk() + "\n";
+                s += ((FriendlyNPC) npc).getOffer();
             }
             return s;
         }

@@ -41,7 +41,6 @@ public class Crawler extends Enemy {
     @Override
     public boolean takeDmg(int dmg) {
         hp -= dmg;
-        System.out.println(hp);
         return hp <= 0;
     }
 

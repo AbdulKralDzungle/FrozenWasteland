@@ -7,11 +7,13 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class TavernMaster extends FriendlyNPC {
-    private ArrayList<Item> items;
-    private final ArrayList<Integer> costs;
+
+    private ArrayList<Integer> costs;
     private ArrayList<Integer> prices;
+    private ArrayList<Item> items;
     private final UnitLoader loader;
 
     @Override
@@ -45,11 +47,26 @@ public class TavernMaster extends FriendlyNPC {
 
     @Override
     public String talk() {
-        return "";
+        String s = "";
+        Random rn = new Random();
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("Resources/TavernMasterSpeach"));
+            for (int i = 0; i < rn.nextInt(19); i++) {
+                s = br.readLine();
+            }
+        } catch (IOException e) {
+            System.out.println("Error reading NPC Offers.txt");
+        }
+        return s;
     }
 
     public String getOffer() {
-        return "";
+        StringBuilder s = new StringBuilder();
+        for (int i = 0; i < items.size(); i++) {
+            s.append(items.get(i).description().split("#")[0]).append(costs.get(i));
+            s.append("\n");
+        }
+        return s.toString();
     }
 
     @Override

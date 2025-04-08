@@ -4,7 +4,7 @@ import Items.Item;
 
 public class BoneMan extends FriendlyNPC {
 
-    private int[] costs = {0, 0};
+    private int[] costs = {};
 
     @Override
     public int getCost(int index) {
