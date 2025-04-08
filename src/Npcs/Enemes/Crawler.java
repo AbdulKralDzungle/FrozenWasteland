@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.Random;
 /**
  * This class is a child of enemy class
- * The difference between this and Item class are minor in case of code structure
- * Therefore all necessary documentation is contained in the Item class
+ * The difference between this and enemy class are minor in case of code structure
+ * Therefore all necessary documentation is contained in the enemy class
  */
 public class Crawler extends Enemy {
     private int hp;

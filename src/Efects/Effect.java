@@ -17,9 +17,20 @@ public abstract class Effect {
      */
     public abstract void applyToPlayer(Player player);
 
-    public abstract void applyToMonster(Enemy eneme);
+    /**
+     * Method that is responsible for applying correct values to enemy while the effect is on it
+     *
+     * @param enemy is npc object that will be effected
+     */
+    public abstract void applyToMonster(Enemy enemy);
 
+    /**
+     * @return true if the effect is about to be removed
+     */
     public abstract boolean remove();
 
+    /**
+     * @return Text output to the player
+     */
     public abstract String description();
 }
