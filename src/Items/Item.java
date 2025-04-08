@@ -1,6 +1,6 @@
 package Items;
 
-import Efects.Efect;
+import Efects.Effect;
 
 /**
  * This is abstract class from witch are all the Item type classes extended from
@@ -61,7 +61,7 @@ public abstract class Item {
     /**
      * @return New effect object that will be added to the player, or enemy array of effects they currently have on them
      */
-    public abstract Efect applyEffects();
+    public abstract Effect applyEffects();
 
     /**
      * @return Weather or not is this item removed from players inventory upon using

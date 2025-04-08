@@ -3,7 +3,7 @@ package Efects;
 import Npcs.Enemes.Enemy;
 import Player.Player;
 
-public class Relaxation extends Efect{
+public class Relaxation extends Effect {
     private int lenght;
 
     public Relaxation() {
@@ -11,11 +11,10 @@ public class Relaxation extends Efect{
     }
 
     @Override
-    public boolean applyToPlayer(Player player) {
+    public void applyToPlayer(Player player) {
         player.addDmg(5);
         player.takeDmg(0);
         player.addEnergyMultiplier(-0.5);
-        return false;
     }
 
     @Override

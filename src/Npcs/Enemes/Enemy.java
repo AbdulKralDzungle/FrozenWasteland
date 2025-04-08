@@ -1,6 +1,6 @@
 package Npcs.Enemes;
 
-import Efects.Efect;
+import Efects.Effect;
 import Items.Item;
 import Npcs.Npc;
 
@@ -47,11 +47,11 @@ public abstract class Enemy extends Npc {
      *
      * @param efect effects that the item applies to the enemy
      */
-    public abstract void takeEffect(Efect efect);
+    public abstract void takeEffect(Effect efect);
 
     /**
      * @return Effects that are passed to player object after the enemy do its attack
      */
-    public abstract ArrayList<Efect> applyEffects();
+    public abstract ArrayList<Effect> applyEffects();
 
 }

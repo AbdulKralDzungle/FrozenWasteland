@@ -1,12 +1,10 @@
 package Command;
 
-import Efects.Efect;
+import Efects.Effect;
 import Items.Item;
 import Map.WorldMap;
 import Npcs.Npc;
 import Player.Player;
-
-import java.util.Scanner;
 
 public class GoTo extends Command {
     @Override
@@ -38,7 +36,7 @@ public class GoTo extends Command {
     }
 
     @Override
-    public Efect apply() {
+    public Effect apply() {
         return null;
     }
 

@@ -1,6 +1,6 @@
 package Map;
 
-import Efects.Efect;
+import Efects.Effect;
 import Items.Item;
 import Npcs.Enemes.Enemy;
 import Npcs.Npc;
@@ -58,7 +58,7 @@ public class Location {
         findables = unitLoader.loadItems(properties[3]);
     }
 
-    public Efect apply() {
+    public Effect apply() {
         return unitLoader.loadApplyable(this.applayble);
     }
 

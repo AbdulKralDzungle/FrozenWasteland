@@ -1,6 +1,6 @@
 package Player;
 
-import Efects.Efect;
+import Efects.Effect;
 import Items.BagUbgrade;
 import Items.Item;
 import Npcs.Enemes.Enemy;
@@ -15,7 +15,7 @@ public class Player {
     private int resistance;
     private int bonusDmg;
     private double energyMultiplier;
-    private ArrayList<Efect> effects;
+    private ArrayList<Effect> effects;
     private Bag bag;
     private Bag ubgrades;
 
@@ -74,7 +74,7 @@ public class Player {
         return false;
     }
 
-    public void applyEffect(Efect e) {
+    public void applyEffect(Effect e) {
         if (e != null) {
             effects.add(e);
         }
@@ -148,7 +148,7 @@ public class Player {
      */
     public String soutEfects() {
         StringBuilder s = new StringBuilder();
-        for (Efect efect : effects) {
+        for (Effect efect : effects) {
             String temp[] = efect.description().split("#");
             s.append(temp[0]).append(" ");
         }
@@ -181,8 +181,8 @@ public class Player {
         bonusDmg = 0;
         resistance = 0;
         energyMultiplier = 1;
-        ArrayList<Efect> nextEffects = new ArrayList<>();
-        for (Efect effect : effects) {                      // effects handling loop
+        ArrayList<Effect> nextEffects = new ArrayList<>();
+        for (Effect effect : effects) {                      // effects handling loop
             effect.applyToPlayer(this);
             if (!effect.remove()) {
                 nextEffects.add(effect);
@@ -200,9 +200,9 @@ public class Player {
         effects.addAll(nextEffects);
         if (interactible instanceof Enemy) {                  // enemies attacks handling
             hp -= ((Enemy) interactible).dealDmg();
-            ArrayList<Efect> efects = ((Enemy) interactible).applyEffects();
+            ArrayList<Effect> efects = ((Enemy) interactible).applyEffects();
             if (efects != null) {
-                for (Efect efect : efects) {
+                for (Effect efect : efects) {
                     if (efects != null) {
                         effects.add(efect);
                     }

@@ -1,6 +1,6 @@
 package Command;
 
-import Efects.Efect;
+import Efects.Effect;
 import Items.Item;
 import Map.WorldMap;
 import Npcs.Enemes.Enemy;
@@ -34,7 +34,7 @@ public class Attack extends Command {
     }
 
     @Override
-    public Efect apply() {
+    public Effect apply() {
         return null;
     }
 

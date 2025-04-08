@@ -3,7 +3,7 @@ package Efects;
 import Npcs.Enemes.Enemy;
 import Player.Player;
 
-public class Healing extends Efect {
+public class Healing extends Effect {
     private int lenght;
 
     public Healing() {
@@ -11,11 +11,10 @@ public class Healing extends Efect {
     }
 
     @Override
-    public boolean applyToPlayer(Player player) {
+    public void applyToPlayer(Player player) {
         player.addDmg(1);
         player.takeDmg(-8);
         player.addEnergyMultiplier(-0.2);
-        return false;
     }
 
     @Override

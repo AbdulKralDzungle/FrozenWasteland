@@ -1,6 +1,6 @@
 package Command;
 
-import Efects.Efect;
+import Efects.Effect;
 import Efects.Tasemnice;
 import Items.Item;
 import Map.WorldMap;
@@ -22,7 +22,7 @@ public class Exit extends Command {
     }
 
     @Override
-    public Efect apply() {
+    public Effect apply() {
         if (!exit) {
             return new Tasemnice();
         }

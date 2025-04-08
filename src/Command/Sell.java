@@ -1,6 +1,6 @@
 package Command;
 
-import Efects.Efect;
+import Efects.Effect;
 import Items.Item;
 import Map.WorldMap;
 import Npcs.Friendly.TavernMaster;
@@ -38,7 +38,7 @@ public class Sell extends Command {
     }
 
     @Override
-    public Efect apply() {
+    public Effect apply() {
         return null;
     }
 

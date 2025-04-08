@@ -1,6 +1,6 @@
 package Command;
 
-import Efects.Efect;
+import Efects.Effect;
 import Items.Item;
 import Map.WorldMap;
 import Npcs.Npc;
@@ -25,7 +25,7 @@ public class Sleep extends Command {
     }
 
     @Override
-    public Efect apply() {
+    public Effect apply() {
         return null;
     }
 

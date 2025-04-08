@@ -1,12 +1,11 @@
 package Command;
 
-import Efects.Efect;
+import Efects.Effect;
 import Items.Item;
 import Map.WorldMap;
 import Npcs.Npc;
 import Player.Player;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class Search extends Command {
@@ -27,7 +26,7 @@ public class Search extends Command {
     }
 
     @Override
-    public Efect apply() {
+    public Effect apply() {
         return null;
     }
 

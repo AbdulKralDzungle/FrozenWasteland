@@ -3,7 +3,7 @@ package Efects;
 import Npcs.Enemes.Enemy;
 import Player.Player;
 
-public class Weekness extends Efect {
+public class Weekness extends Effect {
     private int lenght;
 
     public Weekness() {
@@ -11,11 +11,10 @@ public class Weekness extends Efect {
     }
 
     @Override
-    public boolean applyToPlayer(Player player) {
+    public void applyToPlayer(Player player) {
         player.addDmg(-4);
         player.takeDmg(0);
         player.addEnergyMultiplier(1);
-        return false;
     }
 
     @Override

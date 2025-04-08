@@ -3,7 +3,7 @@ package Efects;
 import Npcs.Enemes.Enemy;
 import Player.Player;
 
-public class Bleeding extends Efect {
+public class Bleeding extends Effect {
     private int lenght;
 
     public Bleeding() {
@@ -11,11 +11,10 @@ public class Bleeding extends Efect {
     }
 
     @Override
-    public boolean applyToPlayer(Player player) {
+    public void applyToPlayer(Player player) {
         player.addDmg(-2);
         player.takeDmg(4);
         player.addEnergyMultiplier(0.2);
-        return false;
     }
 
     @Override

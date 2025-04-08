@@ -44,13 +44,13 @@ public class TheOne extends Enemy {
     }
 
     @Override
-    public void takeEffect(Efect efect) {
+    public void takeEffect(Effect efect) {
         // nah no efects for bosses
     }
 
     @Override
-    public ArrayList<Efect> applyEffects() {
-        ArrayList<Efect> efects = new ArrayList<>();
+    public ArrayList<Effect> applyEffects() {
+        ArrayList<Effect> efects = new ArrayList<>();
         efects.add(new Bleeding());
         efects.add(new Weekness());
         efects.add(new Inhalation());

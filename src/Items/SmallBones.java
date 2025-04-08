@@ -1,6 +1,6 @@
 package Items;
 
-import Efects.Efect;
+import Efects.Effect;
 
 /**
  * This class is a child of Item class
@@ -54,7 +54,7 @@ public class SmallBones extends Item{
     }
 
     @Override
-    public Efect applyEffects() {
+    public Effect applyEffects() {
         return null;
     }
 

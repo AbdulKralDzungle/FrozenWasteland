@@ -3,7 +3,7 @@ package Efects;
 import Npcs.Enemes.Enemy;
 import Player.Player;
 
-public class Freez extends Efect {
+public class Freez extends Effect {
     private int lenght;
 
     public Freez() {
@@ -11,12 +11,11 @@ public class Freez extends Efect {
     }
 
     @Override
-    public boolean applyToPlayer(Player player) {
+    public void applyToPlayer(Player player) {
         player.addDmg(-3);
         player.takeDmg(2);
         player.addEnergyMultiplier(0.5);
 
-        return false;
     }
 
     @Override

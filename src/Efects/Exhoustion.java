@@ -3,7 +3,7 @@ package Efects;
 import Npcs.Enemes.Enemy;
 import Player.Player;
 
-public class Exhoustion extends Efect {
+public class Exhoustion extends Effect {
     private int lenght;
 
     public Exhoustion() {
@@ -11,11 +11,10 @@ public class Exhoustion extends Efect {
     }
 
     @Override
-    public boolean applyToPlayer(Player player) {
+    public void applyToPlayer(Player player) {
         player.addDmg(-10);
         player.takeDmg(0);
         player.addEnergyMultiplier(1.5);
-        return false;
     }
 
     @Override

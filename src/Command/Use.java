@@ -1,6 +1,6 @@
 package Command;
 
-import Efects.Efect;
+import Efects.Effect;
 import Items.Item;
 import Map.WorldMap;
 import Npcs.Enemes.Enemy;
@@ -34,7 +34,7 @@ public class Use extends Command {
     }
 
     @Override
-    public Efect apply() {
+    public Effect apply() {
         if (item.deaDmg() > 0 && interactible instanceof Enemy) {
             ((Enemy) interactible).takeEffect(item.applyEffects());
             return null;

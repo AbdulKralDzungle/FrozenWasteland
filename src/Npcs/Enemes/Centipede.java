@@ -1,7 +1,7 @@
 package Npcs.Enemes;
 
 import Efects.Bleeding;
-import Efects.Efect;
+import Efects.Effect;
 import Items.Item;
 import Items.Shell;
 import Items.SmallBones;
@@ -17,10 +17,10 @@ import java.util.Random;
  */
 public class Centipede extends Enemy {
     private int hp;
-    private ArrayList<Efect> efects;
+    private ArrayList<Effect> efects;
 
     @Override
-    public void takeEffect(Efect efect) {
+    public void takeEffect(Effect efect) {
         efects.add(efect);
     }
 
@@ -60,14 +60,14 @@ public class Centipede extends Enemy {
 
     @Override
     public void update() {
-        for (Efect efect : efects) {
+        for (Effect efect : efects) {
             efect.applyToMonster(this);
         }
     }
 
     @Override
-    public ArrayList<Efect> applyEffects() {
-        ArrayList<Efect> efects = new ArrayList<>();
+    public ArrayList<Effect> applyEffects() {
+        ArrayList<Effect> efects = new ArrayList<>();
         efects.add(new Bleeding());
         return efects;
     }

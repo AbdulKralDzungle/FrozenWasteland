@@ -1,6 +1,6 @@
 package Command;
 
-import Efects.Efect;
+import Efects.Effect;
 import Items.*;
 import Map.*;
 import Npcs.Npc;
@@ -11,7 +11,7 @@ public abstract class Command {
 
     public abstract boolean exit();//
 
-    public abstract Efect apply();//
+    public abstract Effect apply();//
 
     public abstract boolean endsTurn();//
 

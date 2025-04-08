@@ -3,13 +3,12 @@ package Efects;
 import Npcs.Enemes.Enemy;
 import Player.Player;
 
-public class Tasemnice extends Efect{
+public class Tasemnice extends Effect {
     @Override
-    public boolean applyToPlayer(Player player) {
+    public void applyToPlayer(Player player) {
         player.addDmg(-69);
         player.takeDmg(0);
         player.addEnergyMultiplier(0);
-        return false;
     }
 
     @Override

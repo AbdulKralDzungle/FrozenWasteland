@@ -15,7 +15,7 @@ public class UnitLoader {
      * @param id number used to create corresponding class
      * @return newly created object that is used afterwords by enemy and player classes
      */
-    public Efect loadApplyable(int id) {
+    public Effect loadApplyable(int id) {
         return (switch (id) {
             case 0 -> null;
             case 1 -> new Bleeding();

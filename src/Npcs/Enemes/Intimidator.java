@@ -12,7 +12,7 @@ import java.util.Random;
  */
 public class Intimidator extends Enemy {
     private int hp;
-    private ArrayList<Efect> efects;
+    private ArrayList<Effect> efects;
 
     public Intimidator() {
         this.hp = 100;
@@ -48,19 +48,19 @@ public class Intimidator extends Enemy {
 
     @Override
     public void update() {
-        for (Efect efect : efects) {
+        for (Effect efect : efects) {
             efect.applyToMonster(this);
         }
     }
 
     @Override
-    public void takeEffect(Efect efect) {
+    public void takeEffect(Effect efect) {
         efects.add(efect);
     }
 
     @Override
-    public ArrayList<Efect> applyEffects() {
-        ArrayList<Efect> efects = new ArrayList<>();
+    public ArrayList<Effect> applyEffects() {
+        ArrayList<Effect> efects = new ArrayList<>();
         efects.add(new Bleeding());
         efects.add(new Weekness());
         efects.add(new Inhalation());

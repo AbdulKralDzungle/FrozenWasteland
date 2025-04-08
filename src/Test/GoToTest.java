@@ -2,7 +2,6 @@ package Test;
 
 import Command.Command;
 import Command.GoTo;
-import Efects.Efect;
 import Map.WorldMap;
 import Npcs.Enemes.Crawler;
 import Npcs.Npc;

@@ -1,8 +1,7 @@
 package Items;
 
-import Efects.Efect;
+import Efects.Effect;
 
-import java.util.ArrayList;
 /**
  * This class is a child of Item class
  * The difference between this and Item class are minor in case of code structure
@@ -55,7 +54,7 @@ public class ChestPlate2 extends Item{
     }
 
     @Override
-    public  Efect applyEffects() {
+    public Effect applyEffects() {
         return null;
     }
 

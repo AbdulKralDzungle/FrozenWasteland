@@ -1,6 +1,6 @@
 package Npcs.Enemes;
 
-import Efects.Efect;
+import Efects.Effect;
 import Items.Item;
 import Items.Lether;
 import Items.SmallBones;
@@ -15,7 +15,7 @@ import java.util.Random;
  */
 public class Crawler extends Enemy {
     private int hp;
-    private ArrayList<Efect> efects;
+    private ArrayList<Effect> efects;
 
     @Override
     public Item dropItem() {
@@ -52,18 +52,18 @@ public class Crawler extends Enemy {
 
     @Override
     public void update() {
-        for (Efect efect : efects) {
+        for (Effect efect : efects) {
             efect.applyToMonster(this);
         }
     }
 
     @Override
-    public void takeEffect(Efect efect) {
+    public void takeEffect(Effect efect) {
         efects.add(efect);
     }
 
     @Override
-    public ArrayList<Efect> applyEffects() {
+    public ArrayList<Effect> applyEffects() {
         return null;
     }
 }
