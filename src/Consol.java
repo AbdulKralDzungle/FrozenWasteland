@@ -80,6 +80,7 @@ public class Consol {
     private void loop() {
         do {
             System.out.println(soutInfo());
+            System.out.println(soutEndTurnInfo());
             String command = sc.nextLine();
             String[] split = command.split(" ");
             if (interactibleEntiti != null) {
@@ -205,7 +206,7 @@ public class Consol {
      * @return info that is displayed at the end of a players turn
      */
     private String soutEndTurnInfo() {
-        return "turn ended" + " entities: " + this.wm.getCurrentLoc().soutNpcs()
+        return "turn ended" + "\n entities: " + this.wm.getCurrentLoc().soutNpcs()
                 + "\n" + " items: " +
                 player.soutItems() + " "
                 + "\n" + " Efects: " +
