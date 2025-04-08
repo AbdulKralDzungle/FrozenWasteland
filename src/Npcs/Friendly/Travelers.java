@@ -15,7 +15,6 @@ public class Travelers extends FriendlyNPC {
         return "";
     }
 
-    @Override
     public String getOffer() {
         return "";
     }
@@ -23,11 +22,6 @@ public class Travelers extends FriendlyNPC {
     @Override
     public Item buy(int index) {
         return null;
-    }
-
-    @Override
-    public int sell(Item item) {
-        return 0;
     }
 
     @Override

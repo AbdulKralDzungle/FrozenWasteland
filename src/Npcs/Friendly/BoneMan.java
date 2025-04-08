@@ -16,7 +16,6 @@ public class BoneMan extends FriendlyNPC {
         return "";
     }
 
-    @Override
     public String getOffer() {
         return "";
     }
@@ -26,13 +25,9 @@ public class BoneMan extends FriendlyNPC {
         return null;
     }
 
-    @Override
-    public int sell(Item item) {
-        return 0;
-    }
 
     @Override
     public String description() {
-        return "Bones on floor#Description";
+        return "Bones on floor#Old decaying shards of a once human, with nothing but \n worms swarming trough is ribs lays in front of you on the floor, only that and nothing more";
     }
 }

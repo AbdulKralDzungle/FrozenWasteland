@@ -10,9 +10,9 @@ import java.util.ArrayList;
 
 public class TavernMaster extends FriendlyNPC {
     private ArrayList<Item> items;
-    private ArrayList<Integer> costs;
+    private final ArrayList<Integer> costs;
     private ArrayList<Integer> prices;
-    private UnitLoader loader;
+    private final UnitLoader loader;
 
     @Override
     public int getCost(int index) {
@@ -48,7 +48,6 @@ public class TavernMaster extends FriendlyNPC {
         return "";
     }
 
-    @Override
     public String getOffer() {
         return "";
     }
@@ -58,10 +57,6 @@ public class TavernMaster extends FriendlyNPC {
         return items.get(index);
     }
 
-    @Override
-    public int sell(Item item) {
-        return 0;
-    }
 
     @Override
     public String description() {

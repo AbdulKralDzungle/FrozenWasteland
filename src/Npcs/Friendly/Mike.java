@@ -16,7 +16,6 @@ public class Mike extends FriendlyNPC {
         return "";
     }
 
-    @Override
     public String getOffer() {
         return "";
     }
@@ -27,10 +26,7 @@ public class Mike extends FriendlyNPC {
         return null;
     }
 
-    @Override
-    public int sell(Item item) {
-        return 0;
-    }
+
 
     @Override
     public String description() {

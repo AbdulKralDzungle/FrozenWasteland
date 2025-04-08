@@ -3,6 +3,7 @@ package Command;
 import Efects.Efect;
 import Items.Item;
 import Map.WorldMap;
+import Npcs.Friendly.FriendlyNPC;
 import Npcs.Npc;
 import Player.Player;
 
@@ -19,7 +20,11 @@ public class Interact extends Command {
         valid = npcs.size() > id;
         if (valid) {
             npc = npcs.get(id);
-            return "interagovano";
+            String s = npc.description().split("#")[0];
+            if (npc instanceof FriendlyNPC) {
+                s += ": " + ((FriendlyNPC) npc).talk();
+            }
+            return s;
         }
         return "bro what u doang?????????????";
     }
