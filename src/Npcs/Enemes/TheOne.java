@@ -1,16 +1,20 @@
 package Npcs.Enemes;
 
-import Efects.Bleeding;
-import Efects.Efect;
+import Efects.*;
 import Items.Item;
 
 import java.util.ArrayList;
 
+/**
+ * This class is a child of enemy class
+ * The difference between this and Item class are minor in case of code structure
+ * Therefore all necessary documentation is contained in the Item class
+ */
 public class TheOne extends Enemy {
     private int hp;
 
     public TheOne() {
-        this.hp = 100;
+        this.hp = 250;
     }
 
     @Override
@@ -36,7 +40,7 @@ public class TheOne extends Enemy {
 
     @Override
     public void update() {
-
+        // nah no efects for bosses
     }
 
     @Override
@@ -48,6 +52,9 @@ public class TheOne extends Enemy {
     public ArrayList<Efect> applyEffects() {
         ArrayList<Efect> efects = new ArrayList<>();
         efects.add(new Bleeding());
+        efects.add(new Weekness());
+        efects.add(new Inhalation());
+        efects.add(new Exhoustion());
         return efects;
     }
 }

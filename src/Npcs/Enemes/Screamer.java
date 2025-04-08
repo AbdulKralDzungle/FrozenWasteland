@@ -1,10 +1,15 @@
 package Npcs.Enemes;
 
-import Efects.Efect;
-import Items.Item;
+import Efects.*;
+import Items.*;
 
 import java.util.ArrayList;
-
+import java.util.Random;
+/**
+ * This class is a child of enemy class
+ * The difference between this and Item class are minor in case of code structure
+ * Therefore all necessary documentation is contained in the Item class
+ */
 public class Screamer extends Enemy {
     private int hp;
     private ArrayList<Efect> efects;
@@ -16,7 +21,13 @@ public class Screamer extends Enemy {
 
     @Override
     public Item dropItem() {
-        return null;
+        Random rn = new Random();
+        return switch (rn.nextInt(3)) {
+            case 0 -> new WhiteLether();
+            case 1 -> new ToughtLether();
+            case 2 -> new SharpBones();
+            default -> new SmallBones();
+        };
     }
 
     @Override
@@ -49,6 +60,9 @@ public class Screamer extends Enemy {
 
     @Override
     public ArrayList<Efect> applyEffects() {
-        return null;
+        ArrayList<Efect> efects = new ArrayList<>();
+        efects.add(new Inhalation());
+        efects.add(new Exhoustion());
+        return efects;
     }
 }

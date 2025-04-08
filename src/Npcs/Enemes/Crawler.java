@@ -3,25 +3,38 @@ package Npcs.Enemes;
 import Efects.Efect;
 import Items.Item;
 import Items.Lether;
+import Items.SmallBones;
+import Items.Stone;
 
 import java.util.ArrayList;
-
+import java.util.Random;
+/**
+ * This class is a child of enemy class
+ * The difference between this and Item class are minor in case of code structure
+ * Therefore all necessary documentation is contained in the Item class
+ */
 public class Crawler extends Enemy {
     private int hp;
     private ArrayList<Efect> efects;
 
     @Override
     public Item dropItem() {
-        return new Lether();
+        Random rn = new Random();
+        return switch (rn.nextInt(3)) {
+            case 0 -> new Lether();
+            case 1 -> new SmallBones();
+            case 2 -> new Stone();
+            default -> new SmallBones();
+        };
     }
 
     @Override
     public String description() {
-        return "Crawler#Description";
+        return "Crawler#Blank eyes, small legs and that gross creepy smile permanently present on its face";
     }
 
     public Crawler() {
-        this.hp = 100;
+        this.hp = 50;
         efects = new ArrayList<>();
     }
 

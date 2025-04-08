@@ -1,10 +1,20 @@
 package Npcs.Enemes;
 
+import Efects.Bleeding;
 import Efects.Efect;
 import Items.Item;
+import Items.Shell;
+import Items.SmallBones;
+import Items.VenomGland;
 
 import java.util.ArrayList;
+import java.util.Random;
 
+/**
+ * This class is a child of enemy class
+ * The difference between this and Item class are minor in case of code structure
+ * Therefore all necessary documentation is contained in the Item class
+ */
 public class Centipede extends Enemy {
     private int hp;
     private ArrayList<Efect> efects;
@@ -17,7 +27,13 @@ public class Centipede extends Enemy {
 
     @Override
     public Item dropItem() {
-        return null;
+        Random rn = new Random();
+        return switch (rn.nextInt(3)) {
+            case 0 -> new Shell();
+            case 1 -> new VenomGland();
+            case 2 -> new SmallBones();
+            default -> new SmallBones();
+        };
     }
 
     @Override
@@ -26,7 +42,7 @@ public class Centipede extends Enemy {
     }
 
     public Centipede() {
-        this.hp = 100;
+        this.hp = 120;
         efects = new ArrayList<>();
     }
 
@@ -51,6 +67,8 @@ public class Centipede extends Enemy {
 
     @Override
     public ArrayList<Efect> applyEffects() {
-        return null;
+        ArrayList<Efect> efects = new ArrayList<>();
+        efects.add(new Bleeding());
+        return efects;
     }
 }
