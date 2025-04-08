@@ -2,7 +2,6 @@ package Items;
 
 import Efects.Efect;
 
-import java.util.ArrayList;
 /**
  * This class is a child of Item class
  * The difference between this and Item class are minor in case of code structure
@@ -40,7 +39,7 @@ public class SmallBones extends Item{
     }
 
     @Override
-    public int addEnergyMulti() {
+    public double addEnergyMulti() {
         return 0;
     }
 
@@ -50,7 +49,7 @@ public class SmallBones extends Item{
     }
 
     @Override
-    public double sellPrice() {
+    public int sellPrice() {
         return 0;
     }
 
