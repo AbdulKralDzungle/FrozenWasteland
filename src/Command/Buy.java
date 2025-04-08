@@ -12,6 +12,16 @@ public class Buy extends Command {
     private boolean success;
     private int index;
 
+    /**
+     * Subtracts money from player, and adds Item to its inventory if he can effort it
+     *
+     * @param wm           is world map object, that is passed here so that the command is able to make changes on it without
+     *                     having to use too many methods
+     * @param subject      is string containing players input in a form of a number
+     * @param interactible is en entity with witch is the player currently interacting
+     * @param player       is object representing player, that is passed here as a way to read and modify its stats as a result of the command
+     * @return Output that will be presented to the player
+     */
     @Override
     public String execute(WorldMap wm, String subject, Npc interactible, Player player) {
         success = false;

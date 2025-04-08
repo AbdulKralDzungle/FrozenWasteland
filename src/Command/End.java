@@ -7,6 +7,14 @@ import Npcs.Npc;
 import Player.Player;
 
 public class End extends Command {
+    /**
+     * @param wm           is world map object, that is passed here so that the command is able to make changes on it without
+     *                     having to use too many methods
+     * @param subject      is string containing players input in a form of a number
+     * @param interactible is en entity with witch is the player currently interacting
+     * @param player       is object representing player, that is passed here as a way to read and modify its stats as a result of the command
+     * @return empty string, as this command is only for ending interaction with npcs
+     */
     @Override
     public String execute(WorldMap wm, String subject, Npc interactible, Player player) {
         return "";

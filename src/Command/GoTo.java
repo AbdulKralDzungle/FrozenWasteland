@@ -13,8 +13,12 @@ public class GoTo extends Command {
         int i = Integer.parseInt(subject);
         int[] locs = wm.getLocations();
         if (i < locs.length) {
-            wm.goTo(locs[i]);
-            s = "you moved to:" + wm.getCurrentName();
+            if (wm.getCurrentLoc().getNpcs().size() < 2) {
+                wm.goTo(locs[i]);
+                s = "you moved to:" + wm.getCurrentName();
+            } else {
+                s = ("There are too many enemy's in this location, you will have to fight over your chance to escape");
+            }
         } else {
             s = ("as hard as you try, that place simply ins't a place for you to go");
         }
