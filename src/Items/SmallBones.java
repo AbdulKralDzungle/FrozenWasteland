@@ -50,7 +50,7 @@ public class SmallBones extends Item{
     }
 
     @Override
-    public int sellPrice() {
+    public double sellPrice() {
         return 0;
     }
 

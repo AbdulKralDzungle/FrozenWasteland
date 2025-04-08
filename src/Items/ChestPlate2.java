@@ -26,12 +26,12 @@ public class ChestPlate2 extends Item{
 
     @Override
     public boolean isUpgrade() {
-        return false;
+        return true;
     }
 
     @Override
     public int addDef() {
-        return 0;
+        return 10;
     }
 
     @Override
@@ -40,7 +40,7 @@ public class ChestPlate2 extends Item{
     }
 
     @Override
-    public int addEnergyMulti() {
+    public double addEnergyMulti() {
         return 0;
     }
 
@@ -51,7 +51,7 @@ public class ChestPlate2 extends Item{
 
     @Override
     public int sellPrice() {
-        return 0;
+        return 30;
     }
 
     @Override

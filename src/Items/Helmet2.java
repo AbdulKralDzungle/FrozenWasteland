@@ -41,7 +41,7 @@ public class Helmet2 extends Item{
     }
 
     @Override
-    public int addEnergyMulti() {
+    public double addEnergyMulti() {
         return 0;
     }
 

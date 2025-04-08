@@ -46,7 +46,7 @@ public abstract class Item {
      * @return amount of energy multiplier that player will gain upon equipping this item
      * if the items is not considered upgrade this value will be 0
      */
-    public abstract int addEnergyMulti();
+    public abstract double addEnergyMulti();
 
     /**
      * @return amount of dmg dealt upon using this item during combat

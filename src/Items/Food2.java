@@ -47,7 +47,7 @@ public class Food2 extends Item {
     }
 
     @Override
-    public int addEnergyMulti() {
+    public double addEnergyMulti() {
         return 0;
     }
 

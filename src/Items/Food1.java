@@ -2,26 +2,25 @@ package Items;
 
 import Efects.Efect;
 
-import java.util.ArrayList;
 /**
  * This class is a child of Item class
  * The difference between this and Item class are minor in case of code structure
  * Therefore all necessary documentation is contained in the Item class
  */
-public class Food1 extends Item{
+public class Food1 extends Item {
     @Override
     public int giveEnergy() {
-        return 0;
+        return 5;
     }
 
     @Override
     public int giveHp() {
-        return 0;
+        return 40;
     }
 
     @Override
     public String description() {
-        return "Food1#Description";
+        return "HpFood#Description";
     }
 
     @Override
@@ -40,8 +39,8 @@ public class Food1 extends Item{
     }
 
     @Override
-    public int addEnergyMulti() {
-        return 0;
+    public double addEnergyMulti() {
+        return -0.2;
     }
 
     @Override

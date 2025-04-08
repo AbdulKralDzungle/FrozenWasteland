@@ -40,7 +40,7 @@ public class Calendula extends Item{
     }
 
     @Override
-    public int addEnergyMulti() {
+    public double addEnergyMulti() {
         return 0;
     }
 
@@ -51,7 +51,7 @@ public class Calendula extends Item{
 
     @Override
     public int sellPrice() {
-        return 0;
+        return 5;
     }
 
     @Override
