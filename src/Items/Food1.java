@@ -20,7 +20,7 @@ public class Food1 extends Item {
 
     @Override
     public String description() {
-        return "HpFood#Description";
+        return "Hp Food#Description";
     }
 
     @Override
@@ -50,7 +50,7 @@ public class Food1 extends Item {
 
     @Override
     public int sellPrice() {
-        return 0;
+        return 10;
     }
 
     @Override

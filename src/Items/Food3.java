@@ -7,20 +7,20 @@ import Efects.Effect;
  * The difference between this and Item class are minor in case of code structure
  * Therefore all necessary documentation is contained in the Item class
  */
-public class Food3 extends Item{
+public class Food3 extends Item {
     @Override
     public int giveEnergy() {
-        return 0;
+        return 5;
     }
 
     @Override
     public int giveHp() {
-        return 0;
+        return 5;
     }
 
     @Override
     public String description() {
-        return "Food3#Description";
+        return "Agility Food#Description";
     }
 
     @Override
@@ -40,7 +40,7 @@ public class Food3 extends Item{
 
     @Override
     public double addEnergyMulti() {
-        return 0;
+        return -0.5;
     }
 
     @Override
@@ -50,7 +50,7 @@ public class Food3 extends Item{
 
     @Override
     public int sellPrice() {
-        return 0;
+        return 10;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package Items;
 
+import Efects.Bleeding;
 import Efects.Effect;
 
 /**
@@ -45,7 +46,7 @@ public class Stone extends Item{
 
     @Override
     public int deaDmg() {
-        return 0;
+        return 30;
     }
 
     @Override
@@ -55,7 +56,7 @@ public class Stone extends Item{
 
     @Override
     public Effect applyEffects() {
-        return null;
+        return new Bleeding();
     }
 
     @Override

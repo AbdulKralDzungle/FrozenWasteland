@@ -50,7 +50,7 @@ public class WetWood extends Item{
 
     @Override
     public int sellPrice() {
-        return 0;
+        return 2;
     }
 
     @Override

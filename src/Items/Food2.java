@@ -17,17 +17,17 @@ public class Food2 extends Item {
 
     @Override
     public int giveEnergy() {
-        return 0;
+        return 50;
     }
 
     @Override
     public int giveHp() {
-        return 0;
+        return 5;
     }
 
     @Override
     public String description() {
-        return "Food2#Description";
+        return "Energy Food#Description";
     }
 
     @Override
@@ -47,7 +47,7 @@ public class Food2 extends Item {
 
     @Override
     public double addEnergyMulti() {
-        return 0;
+        return -0.2;
     }
 
     @Override
@@ -57,7 +57,7 @@ public class Food2 extends Item {
 
     @Override
     public int sellPrice() {
-        return 0;
+        return 10;
     }
 
     @Override

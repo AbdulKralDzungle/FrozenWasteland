@@ -50,7 +50,7 @@ public class StrangeEye extends Item{
 
     @Override
     public int sellPrice() {
-        return 0;
+        return 70;
     }
 
     @Override

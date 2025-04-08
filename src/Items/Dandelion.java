@@ -50,7 +50,7 @@ public class Dandelion extends Item{
 
     @Override
     public int sellPrice() {
-        return 0;
+        return 5;
     }
 
     @Override

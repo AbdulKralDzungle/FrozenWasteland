@@ -25,12 +25,12 @@ public class Helmet1 extends Item{
 
     @Override
     public boolean isUpgrade() {
-        return false;
+        return true;
     }
 
     @Override
     public int addDef() {
-        return 0;
+        return 5;
     }
 
     @Override
@@ -50,7 +50,7 @@ public class Helmet1 extends Item{
 
     @Override
     public int sellPrice() {
-        return 0;
+        return 15;
     }
 
     @Override

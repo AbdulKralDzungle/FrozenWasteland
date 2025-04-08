@@ -50,7 +50,7 @@ public class Lavender extends Item{
 
     @Override
     public int sellPrice() {
-        return 0;
+        return 10;
     }
 
     @Override

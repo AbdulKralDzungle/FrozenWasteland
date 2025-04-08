@@ -50,7 +50,7 @@ public class DarkBones extends Item{
 
     @Override
     public int sellPrice() {
-        return 0;
+        return 50;
     }
 
     @Override

@@ -50,7 +50,7 @@ public class WhiteLether extends Item {
 
     @Override
     public int sellPrice() {
-        return 0;
+        return 80;
     }
 
     @Override

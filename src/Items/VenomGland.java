@@ -1,13 +1,14 @@
 package Items;
 
 import Efects.Effect;
+import Efects.Inhalation;
 
 /**
  * This class is a child of Item class
  * The difference between this and Item class are minor in case of code structure
  * Therefore all necessary documentation is contained in the Item class
  */
-public class VenomGland extends Item{
+public class VenomGland extends Item {
     @Override
     public int giveEnergy() {
         return 0;
@@ -45,17 +46,17 @@ public class VenomGland extends Item{
 
     @Override
     public int deaDmg() {
-        return 0;
+        return 30;
     }
 
     @Override
     public int sellPrice() {
-        return 0;
+        return 55;
     }
 
     @Override
     public Effect applyEffects() {
-        return null;
+        return new Inhalation();
     }
 
     @Override

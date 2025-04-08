@@ -2,6 +2,7 @@ package Efects;
 
 import Npcs.Enemes.Enemy;
 import Player.Player;
+
 /**
  * This class is a child of Effect class
  * The difference between this and Effect class are minor in case of code structure
@@ -23,7 +24,7 @@ public class Inhalation extends Effect {
 
     @Override
     public void applyToMonster(Enemy enemy) {
-        enemy.takeDmg(10);
+        enemy.takeDmg(15);
     }
 
     public boolean remove() {

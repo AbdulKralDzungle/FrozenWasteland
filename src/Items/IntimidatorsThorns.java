@@ -1,7 +1,7 @@
 package Items;
 
-import Efects.Bleeding;
 import Efects.Effect;
+import Efects.Inhalation;
 
 /**
  * This class is a child of Item class
@@ -46,7 +46,7 @@ public class IntimidatorsThorns extends Item {
 
     @Override
     public int deaDmg() {
-        return 20;
+        return 50;
     }
 
     @Override
@@ -56,7 +56,7 @@ public class IntimidatorsThorns extends Item {
 
     @Override
     public Effect applyEffects() {
-        return new Bleeding();
+        return new Inhalation();
     }
 
     @Override

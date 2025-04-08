@@ -50,7 +50,7 @@ public class ToughtLether extends Item{
 
     @Override
     public int sellPrice() {
-        return 0;
+        return 55;
     }
 
     @Override
