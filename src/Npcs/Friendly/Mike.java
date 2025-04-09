@@ -44,7 +44,7 @@ public class Mike extends FriendlyNPC {
     public String getOffer() {
         StringBuilder s = new StringBuilder();
         for (int i = 0; i < items.size(); i++) {
-            s.append(items.get(i).description().split("#")[0]).append(costs.get(i));
+            s.append(items.get(i).description().split("#")[0]).append(" ").append(costs.get(i));
             s.append("\n");
         }
         return s.toString();

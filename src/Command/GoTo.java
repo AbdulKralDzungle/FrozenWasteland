@@ -13,7 +13,7 @@ public class GoTo extends Command {
         int i = Integer.parseInt(subject);
         int[] locs = wm.getLocations();
         if (i < locs.length) {
-            if (wm.getCurrentLoc().getNpcs().size() < 2) {
+            if (wm.getCurrentLoc().getNpcs().size() < 4) {
                 wm.goTo(locs[i]);
                 s = "you moved to:" + wm.getCurrentName();
             } else {
